@@ -2,7 +2,7 @@ import Nuage from "../components/Nuage"
 import IconButton from "../components/IconButton"
 
 export default function A_Propos() {
-return (
+  return (
     <div className="About">
         <Nuage retour={true}/>
         <div className="Profil">
