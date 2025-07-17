@@ -7,6 +7,7 @@ export default function Contact() {
       <h1>Contact</h1>
       <Nuage retour={true} />
       <ContactForm />
+      <h3>Ou</h3>
       <div className="contact-platforms" style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
         <a href="https://www.linkedin.com/in/fahed-ia/" target="_blank" rel="noopener noreferrer" title="LinkedIn" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
           <img width="96" height="96" src="https://img.icons8.com/fluency/96/linkedin.png" alt="linkedin"/>
