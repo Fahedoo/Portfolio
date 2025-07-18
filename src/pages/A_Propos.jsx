@@ -4,6 +4,7 @@ import IconButton from "../components/IconButton"
 export default function A_Propos() {
   return (
     <div className="About">
+        <h1>A propos</h1>
         <Nuage retour={true}/>
         <div className="Profil">
             <div className="CarteProfil">
