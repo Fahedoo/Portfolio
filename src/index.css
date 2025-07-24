@@ -1,0 +1,31 @@
+.projet-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 370px; /* Ajuste selon ton contenu */
+  transition: box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.projet-card .desc-courte {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, opacity 0.3s;
+  margin: 0.5rem 0;
+}
+.projet-card:hover .desc-courte {
+  max-height: 60px; /* Ajuste selon la taille de ta description */
+  opacity: 1;
+}
+.projet-card .tags-zone {
+  min-height: 3.5em; /* Laisse la place pour ~2 lignes de tags */
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.projet-card .voir-detail {
+  margin-top: auto;
+  text-align: center;
+}
