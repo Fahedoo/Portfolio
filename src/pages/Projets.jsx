@@ -1,3 +1,4 @@
+import Footer from "../components/Footer"
 import Nuage from "../components/Nuage"
 import ProjetsList from "../components/ProjetsList"
 

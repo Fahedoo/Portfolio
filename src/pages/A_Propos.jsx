@@ -1,5 +1,6 @@
 import Nuage from "../components/Nuage"
 import IconButton from "../components/IconButton"
+import Footer from "../components/Footer"
 
 export default function A_Propos() {
   return (

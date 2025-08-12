@@ -1,6 +1,7 @@
 import Nuage from "../components/Nuage";
 import ContactForm from "../components/ContactForm";
 
+
 export default function Contact() {
   return (
     <div className="Contact">
