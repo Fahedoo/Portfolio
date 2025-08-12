@@ -26,6 +26,7 @@ export default function ContactForm() {
 
   return (
     <div className="contact-form">
+      <h3>Contactez moi via ce formulaire !</h3>
       <form ref={form} onSubmit={sendEmail}>
         <label>Nom</label>
         <input type="text" name="user_name" required />

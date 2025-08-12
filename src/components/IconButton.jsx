@@ -3,27 +3,27 @@ import React from "react";
 export default function IconButton({
   href,
   imgSrc,
-  imgAlt = "Logo",
   label,
-  bgColorLight = "#edf3ff",
-  bgColorDark = "#1e1b4b",
-  borderColorLight = "#a2b5ff",
-  borderColorDark = "#4338ca",
-  textColorLight = "#4e4aec",
-  textColorDark = "#818cf8",
+  bgColorLight,
+  bgColorDark,
+  borderColorLight,
+  borderColorDark,
+  textColorLight,
+  textColorDark,
+  tooltip, // nouveau
 }) {
   return (
     <a
-      target="_blank"
-      rel="noopener noreferrer"
-      className="icon-button"
       href={href}
+      className="IconButton"
+      data-tooltip={tooltip || label} // pour la bulle stylée
+      title={tooltip || label}        // fallback natif
       style={{
         display: "inline-flex",
         gap: "0.5rem",
         alignItems: "center",
         justifyContent: "center",
-        padding: "0.5rem 1.25rem",
+        padding: "0.4rem 1rem",
         borderRadius: "9999px",
         border: `1px solid ${borderColorLight}`,
         backgroundColor: bgColorLight,
@@ -34,16 +34,8 @@ export default function IconButton({
       onMouseOver={e => (e.currentTarget.style.transform = "scale(1.05)")}
       onMouseOut={e => (e.currentTarget.style.transform = "scale(1)")}
     >
-      <img
-        alt={imgAlt}
-        width={24}
-        height={24}
-        style={{ objectFit: "cover" }}
-        src={imgSrc}
-      />
-      <span style={{ fontWeight: "500", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
-        {label}
-      </span>
+      <img src={imgSrc} alt={label} />
+      <span>{label}</span>
     </a>
   );
 }
