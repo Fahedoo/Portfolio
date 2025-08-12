@@ -8,8 +8,6 @@ const projets = [
     descriptionLongue: [
       "Indispensable pour un développeur, ce portfolio est une interface professionnelle accessible à tous permettant de mettre en valeur mes compétences et mon expérience, me présenter pour qu'on en apprenne plus sur moi mais aussi de me contacter si intéressé !",
       "Ce projet m'a permis de mettre en pratique mes compétences en React, en gestion de routing, et en design responsive.",
-      "Indispensable pour un développeur, ce portfolio est une interface professionnelle accessible à tous permettant de mettre en valeur mes compétences et mon expérience, me présenter pour qu'on en apprenne plus sur moi mais aussi de me contacter si intéressé !",
-      "Ce projet m'a permis de mettre en pratique mes compétences en React, en gestion de routing, et en design responsive.",
     ],
     miniature: "src/assets/projets/portfolio/pf_tn.png",
     images: [

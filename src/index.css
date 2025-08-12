@@ -27,6 +27,43 @@ body {
   min-height: 100vh;
 }
 
+/* Cache la scrollbar principale (scroll toujours actif) */
+html, body { overflow-y: auto; }              /* défile si besoin */
+body {
+  -ms-overflow-style: none;                   /* IE/Edge legacy */
+  scrollbar-width: none;                      /* Firefox */
+}
+body::-webkit-scrollbar {                     /* Chrome/Edge */
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+/* Option: si ton contenu principal scrolle (App/AppMain), cache aussi là */
+#root, .App, .AppMain {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#root::-webkit-scrollbar,
+.App::-webkit-scrollbar,
+.AppMain::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Layout sticky footer */
+html, body, #root { height: 100%; }
+#root { display: flex; }
+.App {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.AppMain {
+  flex: 1 0 auto; /* prend tout l'espace restant -> footer collé en bas si contenu court */
+}
+
 /* Page d'accueil */
 .Accueil {
   height: 100vh;
@@ -509,7 +546,16 @@ body {
   gap: 1.2rem;
   justify-content: center;
   align-items: flex-start; /* clé: ne pas étirer les autres cartes */
+  margin-bottom: 1rem;
 }
+
+/* Projets: pas de hauteur forcée plein écran, s’adapte au contenu */
+.Projets {
+  min-height: auto;   /* override du 100vh défini plus haut */
+  padding-bottom: 1rem;
+}
+
+
 
 .projet-card {
   background: rgba(32, 18, 70, 0.85);
@@ -837,13 +883,13 @@ body {
 
 /* Footer (DA violette) */
 .SiteFooter {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
+  width: 100%;                 /* au lieu de 100vw */
+  margin-left: 0;              /* retire le full-bleed qui débordait */
+  margin-right: 0;
   background: rgba(32, 18, 70, 0.86);
   border-top: 2px solid #b47cff;
   backdrop-filter: saturate(125%) blur(6px);
-  margin-top: 3rem;
+  margin-top: 0.5rem; /* au lieu de 3rem */
 }
 .SiteFooter .Footer-inner {
   width: 90%;
@@ -957,7 +1003,8 @@ body {
    ========================= */
 .Legal {
   padding: 2rem 1rem;
-  min-height: 100vh;
+  min-height: 0;            /* évite de forcer un écran complet */
+  padding-bottom: 0.5rem;   /* réduit le bas */
 }
 
 .Legal h1 {
@@ -977,6 +1024,7 @@ body {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
+  margin-bottom: 0; /* Ajouté : pas d'espace en bas */
 }
 
 /* Chaque bloc (section) comme une carte */

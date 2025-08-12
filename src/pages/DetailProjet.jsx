@@ -63,7 +63,6 @@ export default function ProjetDetail() {
           </div>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 }
