@@ -1,0 +1,67 @@
+# Script de déploiement manuel pour GitHub Pages
+
+# Vérifier la branche actuelle
+$currentBranch = git rev-parse --abbrev-ref HEAD
+Write-Host "Branche actuelle: $currentBranch" -ForegroundColor Blue
+
+# Construire le projet
+Write-Host "Construction du projet..." -ForegroundColor Green
+Write-Host "Utilisation de npx pour exécuter vite..." -ForegroundColor Blue
+npx vite build
+
+# S'assurer que le dossier 'dist' existe
+if (-not (Test-Path -Path "dist")) {
+    Write-Host "Le dossier 'dist' n'existe pas. La construction a échoué." -ForegroundColor Red
+    exit 1
+}
+
+# Créer un dossier temporaire pour le déploiement
+Write-Host "Création d'un dossier temporaire pour le déploiement..." -ForegroundColor Green
+$tempDir = "temp_deploy_$(Get-Random)"
+New-Item -ItemType Directory -Path $tempDir | Out-Null
+
+# Copier le contenu du dossier dist dans le dossier temporaire
+Write-Host "Copie des fichiers de build..." -ForegroundColor Green
+Copy-Item -Path "dist\*" -Destination $tempDir -Recurse -Force
+
+# Créer une branche orpheline pour GitHub Pages
+Write-Host "Création d'une branche temporaire pour le déploiement..." -ForegroundColor Green
+$currentDir = Get-Location
+Set-Location $tempDir
+
+# Initialiser un nouveau dépôt Git dans le dossier temporaire
+git init
+git checkout --orphan gh-pages
+
+# Ajouter tous les fichiers au suivi Git
+Write-Host "Ajout des fichiers de construction..." -ForegroundColor Green
+git add .
+
+# Créer un commit pour le déploiement
+Write-Host "Création du commit de déploiement..." -ForegroundColor Green
+git commit -m "Déploiement sur GitHub Pages"
+
+# Obtenir l'URL du dépôt distant
+Set-Location $currentDir
+$remoteUrl = git remote get-url origin
+
+# Configurer le dépôt distant dans le dossier temporaire
+Set-Location $tempDir
+git remote add origin $remoteUrl
+
+# Pousser la branche gh-pages
+Write-Host "Création/Mise à jour de la branche gh-pages..." -ForegroundColor Green
+git push origin gh-pages -f
+
+# Revenir au dossier original
+Set-Location $currentDir
+
+# Nettoyage du dossier temporaire
+Write-Host "Nettoyage..." -ForegroundColor Blue
+Remove-Item -Path $tempDir -Recurse -Force -ErrorAction SilentlyContinue
+
+Write-Host "Déploiement terminé! Votre site est maintenant disponible sur: https://fahedoo.github.io/portfolio" -ForegroundColor Green
+Write-Host "N'oubliez pas d'activer GitHub Pages dans les paramètres de votre dépôt en sélectionnant la branche gh-pages." -ForegroundColor Yellow
+
+Write-Host "Déploiement terminé! Votre site est maintenant disponible sur: https://fahedoo.github.io/portfolio" -ForegroundColor Green
+Write-Host "N'oubliez pas d'activer GitHub Pages dans les paramètres de votre dépôt en sélectionnant la branche gh-pages." -ForegroundColor Yellow
