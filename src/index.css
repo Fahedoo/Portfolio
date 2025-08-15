@@ -106,7 +106,7 @@ html, body, #root { height: 100%; }
   color: #FFF;
   text-align: center;
   text-shadow: 2px 5px 0 rgba(0, 0, 0, 0.25);
-  -webkit-text-stroke: 4px #17006A;
+  -webkit-text-stroke: 2.3px #17006A; /* réduit de 4px à 2px */
   font-size: 50px;
   transition: transform 0.3s ease;
   text-decoration: none;
@@ -336,7 +336,7 @@ html, body, #root { height: 100%; }
   text-decoration: none;
   font-size: 1.5rem;
   text-shadow: 1px 3px 0 rgba(0, 0, 0, 0.25);
-  -webkit-text-stroke: 2px #17006A;
+  -webkit-text-stroke: 1.5px #17006A; /* réduit de 2px à 1.5px */
   transition: transform 0.2s;
 }
 

@@ -11,7 +11,12 @@ export default function ContactForm() {
     setStatus('Envoi en cours...');
 
     emailjs
-      .sendForm('service_3telqxl', 'template_91tem4n', form.current, '9BDVwqRwsQTQeyUq5')
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
+        form.current, 
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
       .then(
         (result) => {
           setStatus('Message envoyé avec succès ✅');

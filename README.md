@@ -1,12 +1,63 @@
-# React + Vite
+# Portfolio Fahed
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personnel créé avec React, Vite et déployé sur GitHub Pages.
 
-Currently, two official plugins are available:
+## Technologies utilisées
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- Vite
+- React Router
+- EmailJS pour le formulaire de contact
+- GitHub Pages pour le déploiement
 
-## Expanding the ESLint configuration
+## Configuration du projet
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Installation des dépendances
+
+```bash
+npm install
+```
+
+### Variables d'environnement
+
+Créez un fichier `.env` à la racine du projet avec les clés suivantes :
+
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+Un fichier `.env.example` est fourni comme modèle.
+
+### Développement local
+
+```bash
+npm run dev
+```
+
+### Build pour production
+
+```bash
+npm run build
+```
+
+### Déploiement sur GitHub Pages
+
+1. Modifiez le champ `homepage` dans `package.json` avec votre nom d'utilisateur GitHub
+2. Exécutez la commande suivante :
+
+```bash
+npm run deploy
+```
+
+## Structure du projet
+
+- `src/components/` - Composants réutilisables
+- `src/pages/` - Pages de l'application
+- `src/data/` - Données statiques (projets, tags)
+- `src/assets/` - Images et ressources
+
+## Contact
+
+Pour toute question ou suggestion, utilisez le formulaire de contact sur le site.
