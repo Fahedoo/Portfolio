@@ -26,7 +26,7 @@ export default function Footer() {
                 aria-label="Envoyer un email"
                 title="Email"
               >
-                <img src="https://img.icons8.com/ios-filled/50/17006A/filled-sent.png" alt="" />
+                <img src="https://img.icons8.com/ios-filled/100/1A1A1A/upload-mail.png" alt="" />
               </a>
               <a
                 className="Footer-icon"
@@ -55,7 +55,7 @@ export default function Footer() {
             <ul className="Footer-nav">
               <li><Link to="/">Accueil</Link></li>
               <li><Link to="/projets">Projets</Link></li>
-              <li><Link to="/apropos">À propos</Link></li>
+              <li><Link to="/a_propos">À propos</Link></li>
               <li><Link to="/contact">Contact</Link></li>
               <li><Link to="/mentions-legales">Mentions légales</Link></li>
             </ul>

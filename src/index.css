@@ -106,8 +106,8 @@ html, body, #root { height: 100%; }
   color: #FFF;
   text-align: center;
   text-shadow: 2px 5px 0 rgba(0, 0, 0, 0.25);
-  -webkit-text-stroke: 2.3px #17006A; /* réduit de 4px à 2px */
-  font-size: 50px;
+  -webkit-text-stroke: 4px #17006A; /* réduit de 4px à 2px */
+  font-size: 45px;
   transition: transform 0.3s ease;
   text-decoration: none;
   padding: 2em;
