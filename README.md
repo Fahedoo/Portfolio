@@ -1,6 +1,6 @@
 # Portfolio Fahed
 
-Portfolio personnel créé avec React, Vite et déployé sur GitHub Pages.
+Portfolio personnel créé avec React, Vite et déployé sur Vercel.
 
 ## Technologies utilisées
 
@@ -8,7 +8,7 @@ Portfolio personnel créé avec React, Vite et déployé sur GitHub Pages.
 - Vite
 - React Router
 - EmailJS pour le formulaire de contact
-- GitHub Pages pour le déploiement
+- Vercel pour le déploiement
 
 ## Configuration du projet
 
