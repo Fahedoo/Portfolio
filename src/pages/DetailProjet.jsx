@@ -4,7 +4,6 @@ import projets from "../data/projets";
 import Nuage from "../components/Nuage";
 import Tag from "../components/Tag";
 import Carousel from "../components/Carousel";
-import Footer from "../components/Footer";
 
 
 export default function ProjetDetail() {

@@ -27,7 +27,7 @@ const projets = [
     slug: "niltiplication", // remplace id par slug
     titre: "Niltiplication",
     descriptionCourte: "Site éducationnel sur la multiplication égyptienne.",
-    descriptionLongue: "Dans le cadre des SAE 105/203 de ma formation en BUT MMI, j'ai été amené à réaliser dans un premier temps un site éducationnel sur la multiplication égyptienne, puis plus tard réadapter l'artitecture sous format MVC et d'apporter des améliorations au site (connexions, ajout de commentaires..).",
+    descriptionLongue: "Dans le cadre des SAE 105/203 de ma formation en BUT MMI, j'ai été amené à réaliser dans un premier temps un site éducationnel sur la multiplication égyptienne, puis plus tard réadapter l'architecture sous format MVC et d'apporter des améliorations au site (connexions, ajout de commentaires..).",
     miniature: "src/assets/projets/niltiplication/nilti_tn.png",
     images: [
         "src/assets/projets/niltiplication/nilti_1.png",
