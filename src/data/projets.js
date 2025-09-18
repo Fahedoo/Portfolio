@@ -9,11 +9,11 @@ const projets = [
       "Indispensable pour un développeur, ce portfolio est une interface professionnelle accessible à tous permettant de mettre en valeur mes compétences et mon expérience, me présenter pour qu'on en apprenne plus sur moi mais aussi de me contacter si intéressé !",
       "Ce projet m'a permis de mettre en pratique mes compétences en React, en gestion de routing, et en design responsive.",
     ],
-    miniature: "/projets/portfolio/pf_tn.png",
+    miniature: "../../projets/portfolio/pf_tn.png",
     images: [
-      "/projets/portfolio/pf_1.png",
-      "/projets/portfolio/pf_2.png",
-      "/projets/portfolio/pf_tn.png"
+      "../../projets/portfolio/pf_1.png",
+      "../../projets/portfolio/pf_2.png",
+      "../../projets/portfolio/pf_tn.png"
     ],
     tags: [
       tagsLib.find(t => t.label === "React"),
@@ -28,10 +28,10 @@ const projets = [
     titre: "Niltiplication",
     descriptionCourte: "Site éducationnel sur la multiplication égyptienne.",
     descriptionLongue: "Dans le cadre des SAE 105/203 de ma formation en BUT MMI, j'ai été amené à réaliser dans un premier temps un site éducationnel sur la multiplication égyptienne, puis plus tard réadapter l'architecture sous format MVC et d'apporter des améliorations au site (connexions, ajout de commentaires..).",
-    miniature: "/projets/niltiplication/nilti_tn.png",
+    miniature: "../../projets/niltiplication/nilti_tn.png",
     images: [
-        "/projets/niltiplication/nilti_1.png",
-        "/projets/niltiplication/nilti_2.png",
+        "../../projets/niltiplication/nilti_1.png",
+        "../../projets/niltiplication/nilti_2.png",
         "https://i.pinimg.com/736x/07/e7/5e/07e75ee348a4ee46de99cdb397bdf1a6.jpg"
     ],
     tags: [
