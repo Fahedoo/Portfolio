@@ -9,7 +9,7 @@ export default function A_Propos() {
       <Nuage retour={true} />
       <div className="Profil">
         <section className="CarteProfil">
-          <img src="DA/fahed.jpg" alt="Moi" />
+          <img src="/DA/fahed.jpg" alt="Moi" />
           <div className="SousCarte">
             <h3>Fahed ISMAILI ALAOUI</h3>
             <h5>Alias:</h5>
