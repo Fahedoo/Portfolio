@@ -1,7 +1,7 @@
 /* Police personnalisée */
 @font-face {
   font-family: 'Alagard';
-  src: url('./assets/DA/alagard.ttf') format('truetype');
+  src: url('/DA/alagard.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 
 body {
   /*background: linear-gradient(to bottom, #17006A 0%, #7E00D2 100%);*/
-  background: url(public/DA/bg.png) no-repeat;
+  background: url(/DA/bg.png) no-repeat;
   
   background-size: cover;
   font-family: 'Alagard', Arial, sans-serif;
