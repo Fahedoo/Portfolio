@@ -9,7 +9,7 @@ export default function Carousel({ images, alt }) {
   const next = () => setIndex(i => (i === images.length - 1 ? 0 : i + 1));
 
   return (
-    <div style={{ position: "relative", width: "400px", margin: "1rem auto" }}>
+    <div style={{ position: "relative", width: "100%", maxWidth: 420, margin: "1rem auto" }}>
       <img
         src={images[index]}
         alt={alt}

@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 export default function A_Propos() {
   return (
     <div className="About">
-      <h1>À propos de moi</h1>
+      <h1>A propos de moi</h1>
       <Nuage retour={true} />
       <div className="Profil">
         <section className="CarteProfil">
