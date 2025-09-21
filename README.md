@@ -2,6 +2,15 @@
 
 Portfolio personnel créé avec React, Vite et déployé sur Vercel.
 
+## Compte-rendu
+
+C'est mon premier projet réalisé avec React, j'ai d'abord appris les bases de celui-ci sur Codédex avant de me jeter à l'eau avec pour compagnon Copilot. 
+J'ai aussi eu l'occasion de toucher pour la première fois à Node.js, un environnement d'exécution permettant de réaliser des projets et y installer des "dependencies", des outils utiles au fonctionnement de ces projets : j'ai notamment eu recours à l'API EmailJS, et ai aussi dû l'installer avec NPM (Node Package Manager) dans les modules.
+
+## Futurs apports
+
+Le site peut encore être perfectionné et je compte bien lui apporter des améliorations : je pense notamment à une animation de transition, ou à une amélioration du filtrage, qui va devenir indispensable avec tous les projets qui arrivent sur le portfolio.
+
 ## Technologies utilisées
 
 - React
@@ -42,21 +51,24 @@ npm run dev
 npm run build
 ```
 
-### Déploiement sur GitHub Pages
-
-1. Modifiez le champ `homepage` dans `package.json` avec votre nom d'utilisateur GitHub
-2. Exécutez la commande suivante :
-
-```bash
-npm run deploy
-```
-
 ## Structure du projet
 
 - `src/components/` - Composants réutilisables
 - `src/pages/` - Pages de l'application
 - `src/data/` - Données statiques (projets, tags)
-- `src/assets/` - Images et ressources
+- `src/assets/` - Images et ressources, aussi placés dans le répertoire `public/`
+
+## Responsivité
+
+Le site est responsive et s'adapte des mobiles aux grands écrans :
+
+- Typographies et éléments clés utilisent des tailles fluides via `clamp()`.
+- Les images/vidéos sont fluides (`max-width: 100%`).
+- Les sections cartes (projets, détails) se réorganisent en colonne sous 900px.
+- La page d'accueil empile les nuages et réduit la taille sur mobiles (<768px).
+- Les cartes projets redimensionnent leur largeur avec `clamp(210px, 43vw, 250px)`.
+
+Breakpoints principaux : 1024px, 900px et 768px (+ ajustements à 520px).
 
 ## Contact
 
