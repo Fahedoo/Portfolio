@@ -4,8 +4,10 @@ Portfolio personnel créé avec React, Vite et déployé sur Vercel.
 
 ## Compte-rendu
 
-C'est mon premier projet réalisé avec React, j'ai d'abord appris les bases de celui-ci sur Codédex avant de me jeter à l'eau avec pour compagnon Copilot. 
-J'ai aussi eu l'occasion de toucher pour la première fois à Node.js, un environnement d'exécution permettant de réaliser des projets et y installer des "dependencies", des outils utiles au fonctionnement de ces projets : j'ai notamment eu recours à l'API EmailJS, et ai aussi dû l'installer avec NPM (Node Package Manager) dans les modules.
+C'est mon premier projet réalisé avec React, j'ai d'abord appris les bases de celui-ci sur Codédex avant de me jeter à l'eau avec pour compagnon Copilot. <br>
+J'ai aussi eu l'occasion de toucher pour la première fois à Node.js, un environnement d'exécution permettant de réaliser des projets et y installer des "dependencies", des outils utiles au fonctionnement de ces projets : j'ai notamment eu recours à l'API EmailJS, et ai aussi dû l'installer avec NPM (Node Package Manager) dans les modules.<br>
+Enfin, c'est le premier projet dans lequel j'ai pu avoir recours à Git. Il m'a valu quelques soucis, tant il était encore flou et pas assez maîtrisé pour moi (je pense notamment à une ancienne branche que j'ai essayé de déployer mais qui n'a pas fonctionné..),
+mais j'ai pû petit à petit le comprendre un peu mieux. Ce coup-ci, l'IA m'a plus handicapé qu'aidé, car je me suis beaucoup reposé dessus pour les commandes Git et ne me chargeais que des commit. J'essaierai d'apprendre au moins les bases de cet outil, qui peut s'avérer très utile pour mieux "versionner" des projets.
 
 ## Futurs apports
 
