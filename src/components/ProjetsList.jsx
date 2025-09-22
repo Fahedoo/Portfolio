@@ -147,7 +147,7 @@ export default function ProjetsList() {
             <h3 className="projet-titre">{projet.titre}</h3>
           </Link>
         ))}
-        {projetsFiltres.length === 0 && <div>Aucun projet ne correspond à ce filtre.</div>}
+        {projetsFiltres.length === 0 && <div>Aucun projet ne correspond a ce filtre.</div>}
       </div>
     </div>
   );
