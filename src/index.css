@@ -735,8 +735,8 @@ html, body, #root { height: 100%; }
     flex-direction: column; /* vertical */
     justify-content: center;
     align-items: center;
-    gap: 0.65rem;               /* was 1rem */
-    padding: 0.75rem 0 1.25rem; /* was 1.25rem 0 2rem */
+    gap: 0.5rem;            /* was 0.65rem */
+    padding: 0.6rem 0 1rem; /* was 0.75rem 0 1.25rem */
   }
 
   .Nuage_Section {
@@ -744,52 +744,20 @@ html, body, #root { height: 100%; }
   }
 
   .Nuage_Section a {
-    height: 120px;                       /* verrouille la hauteur (pas d’agrandissement) */
-    min-height: 120px;
-    min-width: min(92vw, 360px);         /* taille nuage inchangée */
-    font-size: clamp(1.35rem, 6.6vw, 2.1rem);  /* texte un peu plus grand */
-    letter-spacing: 0.5px;
-    padding: clamp(0.45rem, 1.8vw, 0.85rem);   /* compense pour garder la boîte stable */
+    height: 110px;                         /* was 120px */
+    min-height: 110px;                     /* was 120px */
+    min-width: min(90vw, 330px);           /* was min(92vw, 360px) */
+    font-size: clamp(1.15rem, 5.5vw, 1.9rem); /* was clamp(1.35rem, 6.6vw, 2.1rem) */
+    padding: clamp(0.35rem, 1.4vw, 0.7rem);   /* was 0.45–0.85rem */
+    -webkit-text-stroke: 1.5px #17006A;       /* plus fin pour petite taille */
   }
-  .Accueil p { font-size: clamp(1.4rem, 6.4vw, 2rem); }
-  /* Nuages plus larges et plus hauts */
+}
+
+/* SUPPRIMER le doublon qui ré-agrandit les nuages en mobile
+@media (max-width: 768px) {
   .Nuage_Section a { font-size: clamp(1.6rem, 7.8vw, 2.6rem); min-width: min(94vw, 420px); min-height: 160px; }
-  .Nuage_Section { position: static !important; }
-  
-    .About {
-        padding: 2rem 1rem;
-        width: 100%;
-        max-width: none;
-    }
-    
-    .Skills-List {
-        justify-content: center;
-    }
 }
-
-@media (max-width: 900px) {
-  .projet-detail-grid {
-    flex-direction: column;
-    gap: 2rem;
-  }
-  .projet-detail-carousel {
-    max-width: 100%;
-    min-width: 0;
-  }
-}
-
-.Projets .Nuage_Back,
-.About .Nuage_Back,
-.Contact .Nuage_Back {
-  position: fixed;
-  top: 2%;
-  left: 2rem;
-  z-index: 9999;
-}
-
-@media (max-width: 520px) {
-  .Nuage_Back a { width: 120px; height: 64px; font-size: 1.2rem; }
-}
+*/
 
 /* Évite que le bouton retour recouvre les titres en mobile */
 @media (max-width: 768px) {
