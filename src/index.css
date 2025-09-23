@@ -140,16 +140,16 @@ html, body, #root { height: 100%; }
 
 /* Pages de contenu */
 .Projets, .About, .Contact, .Projet_Detail {
-  padding: 2rem;
+  padding: 0.7rem;
   min-height: 100vh;
 }
 
 /* Page À propos */
 .About {
     padding: 3rem 2rem;
-    max-width: 1440px;
+    max-width: 1600px;    /* was 1440px */
     margin: 0 auto;
-    width: 90%;
+    width: 96%;           /* was 90% */
 }
 
 .About h1 {
@@ -220,17 +220,31 @@ html, body, #root { height: 100%; }
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Section compétences */
+/* Section compétences (plus large + écart avec "Mes passions") */
 .Compétences {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
+  margin-top: 3.5rem;                 /* was 3rem */
+  /* élargie visuellement par rapport au contenu */
+  width: calc(100% + 1rem);
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  margin-bottom: 3.5rem;
 }
-@media (max-width: 768px) { .Compétences { margin-top: 2rem; padding: 1.5rem; } }
+@media (max-width: 768px) {
+  .Compétences {
+    margin-top: 2rem;               /* was 2rem */
+    width: calc(100% + 1rem);
+    margin-left: -0.50rem;
+    margin-right: -0.50rem;
+    padding: 0.75rem;
+    margin-bottom: 2rem;
+  }
+}
 
 .Compétences h2 {
-  font-size: 1.85rem;
+  font-size: 1.7rem;
     margin-bottom: 1.5rem;
 }
 
@@ -388,7 +402,7 @@ html, body, #root { height: 100%; }
 
 .projet-detail-opaque {
   margin: 5rem auto 2rem auto;
-  max-width: 1100px;
+  max-width: 1180px;                  /* was 1100px */
   background: rgba(32, 18, 70, 0.92);
   border-radius: 1.5rem;
   box-shadow: 0 8px 32px #17006a33;
@@ -443,10 +457,12 @@ html, body, #root { height: 100%; }
 
 .projet-detail-desc p {
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1.05rem;                 /* was 1.1rem */
   margin-bottom: 0.7em;
 }
-@media (max-width: 768px) { .projet-detail-desc p { font-size: 1rem; } }
+@media (max-width: 768px) {
+  .projet-detail-desc p { font-size: 0.96rem; }  /* was 1rem */
+}
 
 /* Tags (liste et page détail) en Inter */
 .projet-tags-row,
@@ -744,10 +760,10 @@ html, body, #root { height: 100%; }
   }
 
   .Nuage_Section a {
-    height: 110px;                         /* was 120px */
+    height: 125px;                         /* was 120px */
     min-height: 110px;                     /* was 120px */
     min-width: min(90vw, 330px);           /* was min(92vw, 360px) */
-    font-size: clamp(1.15rem, 5.5vw, 1.9rem); /* was clamp(1.35rem, 6.6vw, 2.1rem) */
+    font-size: clamp(2rem, 5.5vw, 1.9rem); /* was clamp(1.35rem, 6.6vw, 2.1rem) */
     padding: clamp(0.35rem, 1.4vw, 0.7rem);   /* was 0.45–0.85rem */
     -webkit-text-stroke: 1.5px #17006A;       /* plus fin pour petite taille */
   }
@@ -867,8 +883,8 @@ html, body, #root { height: 100%; }
   height: 30px;
 }
 @media (max-width: 768px) {
-  .Skills-List { gap: 0.45rem; }
-  .Skills-List .IconButton { transform: scale(0.86); transform-origin: left center; padding: 0.35rem 0.6rem !important; }
+  .Skills-List { gap: 0.1rem; }
+  .Skills-List .IconButton { transform: scale(0.86); transform-origin:  center; padding: 0.35rem 0.6rem !important; }
   .Skills-List .IconButton img { width: 22px !important; height: 22px !important; }
 }
 
@@ -1207,3 +1223,66 @@ html, body, #root { height: 100%; }
   }
 }
 */
+
+@media (max-width: 768px) {
+  /* Bouton retour plus petit et un peu plus haut à gauche */
+  .Nuage_Back { top: 0.75rem; left: 0.75rem; }
+  .Nuage_Back a {
+    width: 120px;           /* was 150px */
+    height: 64px;           /* was 80px */
+    font-size: 1.2rem;      /* was 1.5rem */
+    -webkit-text-stroke: 1px #17006A;
+  }
+
+  /* Titres: un peu plus d’air en haut */
+  .Projets h1, .About h1, .Contact h1, .Projet_Detail h1 {
+    margin-top: 0.5rem;     /* was 0 */
+  }
+
+  /* Détail projet: stack sous le carrousel, pas à côté */
+  .projet-detail-grid {
+    flex-direction: column; /* au lieu de côte à côte */
+    gap: 0.9rem;            /* cohérent mobile */
+  }
+  .projet-detail-carousel,
+  .projet-detail-content {
+    width: 100%;
+    max-width: none;
+    min-width: 0;           /* annule les min-width qui forcent l’overflow */
+    flex: 0 1 auto;
+  }
+}
+
+/* À propos: container plus large */
+.About {
+  /* ...existing code... */
+  width: 96%;           /* was 90% */
+  max-width: 1600px;    /* was 1440px */
+}
+
+/* À propos: contenu élargi par rapport à la carte (desktop) */
+@media (min-width: 1100px) {
+  .Profil {
+    /* carte (col 1) un peu plus compacte, contenu (col 2) plus large */
+    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 2.8fr);
+    gap: 2rem; /* conserve l’espacement actuel */
+  }
+}
+
+/* Très grands écrans: contenu encore un peu plus large */
+@media (min-width: 1440px) {
+  .About { max-width: 1680px; }
+  .Profil {
+    grid-template-columns: minmax(300px, 0.9fr) minmax(0, 3.1fr);
+  }
+}
+
+/* Tablette/mobile: occupe bien la largeur de l’écran */
+@media (max-width: 1024px) {
+  .About {
+    width: 100%;
+    max-width: none;
+    padding-left: 1rem;   /* réduit l’inner padding pour gagner en largeur utile */
+    padding-right: 1rem;
+  }
+}
