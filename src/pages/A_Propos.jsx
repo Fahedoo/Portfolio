@@ -20,7 +20,7 @@ export default function A_Propos() {
           <article className="Description">
             <h2>Moi, c'est Fahed !</h2>
             <p>
-              Depuis le plus jeune âge j'ai été plongé dans <b>l'informatique</b> et le
+              Depuis le plus jeune âge j'ai été plongé dans <b>l'informatique</b> et le 
               <b>monde d’Internet</b> dans sa globalité ; je passais mes journées devant mon
               ordinateur à consommer des contenus divers, principalement des jeux vidéos, mais
               aussi des vidéos Youtube ou d'autres contenus... <br />
