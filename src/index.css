@@ -220,6 +220,14 @@ html, body, #root { height: 100%; }
     color: rgba(255, 255, 255, 0.9);
 }
 
+.Description b {
+  background: linear-gradient(90deg, #FDE9BC 0%, #7E00D2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
 /* Section compétences (plus large + écart avec "Mes passions") */
 .Compétences {
   margin-top: 3.5rem;                 /* was 3rem */

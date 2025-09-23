@@ -21,14 +21,14 @@ export default function A_Propos() {
             <h2>Moi, c'est Fahed !</h2>
             <p>
               Depuis le plus jeune âge j'ai été plongé dans <b>l'informatique</b> et le 
-              <b>monde d’Internet</b> dans sa globalité ; je passais mes journées devant mon
+              <b> monde d’Internet</b> dans sa globalité ; je passais mes journées devant mon
               ordinateur à consommer des contenus divers, principalement des jeux vidéos, mais
               aussi des vidéos Youtube ou d'autres contenus... <br />
               alors avec le temps j’ai compris que j'allais finir dans ce vaste milieu plus tard !
             </p>
             <p>
-              Mais c'est après quelques mois en BUT Métiers de Multimédia et de l’Internet que j'ai
-              compris que ce qui me correspondait le plus, c'est le développement. J'adore me
+              Mais c'est après quelques mois en <b>BUT Métiers de Multimédia et de l’Internet</b> que j'ai
+              compris que ce qui me correspondait le plus, c'est le <b>développement</b>. J'adore me
               casser la tête à résoudre des problèmes et développer des solutions à un besoin, et
               c'est ce qui fait cet amour personnel pour ce domaine en particulier !
             </p>
