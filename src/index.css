@@ -85,6 +85,12 @@ html, body, #root { height: 100%; }
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .Accueil .en-tête {
+    margin-top: 2rem;
+  }
+}
+
 .Accueil p {
   /* 28px -> 40px selon la largeur */
   font-size: clamp(1.75rem, 4.5vw, 2.5rem);
@@ -107,8 +113,9 @@ html, body, #root { height: 100%; }
   background: url('/DA/cloud.png') no-repeat center/contain;
   color: #FFF;
   text-align: center;
-  text-shadow: 2px 5px 0 rgba(0, 0, 0, 0.25);
-  -webkit-text-stroke: 2.3px #17006A; /* réduit de 4px à 2px */
+  text-shadow: -9px 8px 0 #17006A80;
+  -webkit-text-stroke: 10px #17006A; /* reduced from 8px to 2px */
+  paint-order: stroke fill;
   font-size: clamp(1.75rem, 6vw, 50px);
   transition: transform 0.3s ease;
   text-decoration: none;
@@ -386,7 +393,8 @@ html, body, #root { height: 100%; }
   text-decoration: none;
   font-size: 1.5rem;
   text-shadow: 1px 3px 0 rgba(0, 0, 0, 0.25);
-  -webkit-text-stroke: 1.5px #17006A; /* réduit de 2px à 1.5px */
+  -webkit-text-stroke: 5px #17006A;
+  paint-order: stroke fill;
   transition: transform 0.2s;
 }
 
@@ -773,15 +781,12 @@ html, body, #root { height: 100%; }
     min-width: min(90vw, 330px);           /* was min(92vw, 360px) */
     font-size: clamp(2rem, 5.5vw, 1.9rem); /* was clamp(1.35rem, 6.6vw, 2.1rem) */
     padding: clamp(0.35rem, 1.4vw, 0.7rem);   /* was 0.45–0.85rem */
-    -webkit-text-stroke: 1.5px #17006A;       /* plus fin pour petite taille */
+    -webkit-text-stroke: 7px #17006A;
+    paint-order: stroke fill;
+    text-shadow: 0px 0px 0 #17006A80;
   }
 }
 
-/* SUPPRIMER le doublon qui ré-agrandit les nuages en mobile
-@media (max-width: 768px) {
-  .Nuage_Section a { font-size: clamp(1.6rem, 7.8vw, 2.6rem); min-width: min(94vw, 420px); min-height: 160px; }
-}
-*/
 
 /* Évite que le bouton retour recouvre les titres en mobile */
 @media (max-width: 768px) {
@@ -803,7 +808,7 @@ html, body, #root { height: 100%; }
   margin-top: 0;
   margin-bottom: 1.5rem;
   width: 100%;
-  font-size: clamp(1.6rem, 4.5vw, 2.5rem);
+  font-size: clamp(2rem, 4.5vw, 2.5rem);
   font-family: 'Alagard', Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
@@ -1242,7 +1247,8 @@ html, body, #root { height: 100%; }
     width: 120px;           /* was 150px */
     height: 64px;           /* was 80px */
     font-size: 1.2rem;      /* was 1.5rem */
-    -webkit-text-stroke: 1px #17006A;
+    -webkit-text-stroke: 5.5px #17006A;
+    paint-order: stroke fill;
   }
 
   /* Titres: un peu plus d’air en haut */
