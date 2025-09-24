@@ -13,7 +13,7 @@ const typesProjet = [
 const VISIBLE_TAGS = 3;
 
 export default function ProjetsList() {
-  const [filtreOuvert, setFiltreOuvert] = useState(true);
+  const [filtreOuvert, setFiltreOuvert] = useState(false);
   const [filtreType, setFiltreType] = useState("");
   const [filtreTags, setFiltreTags] = useState([]);
 
