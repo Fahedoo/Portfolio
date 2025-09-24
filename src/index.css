@@ -274,7 +274,7 @@ html, body, #root { height: 100%; }
   display: flex;
   gap: 3rem;
   justify-content: center;
-  margin: 2rem auto 0;       /* centré horizontalement */
+  margin: 2rem auto 0;
   padding: 0 2rem;
   width: 70%;
 }
@@ -347,22 +347,25 @@ html, body, #root { height: 100%; }
 .contact-platforms {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: center;
 }
 
 .contact-platforms a {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;      /* Centre le texte horizontalement */
+  gap: 2.2rem;                  /* Décale le logo plus à gauche */
   background: linear-gradient(135deg, #E0C992 0%, #F2E3C3 100%);
-  padding: 1.2rem 2rem;
+  padding: 2rem 3rem;
   border-radius: 0.8rem;
   color: #17006A;
   font-weight: bold;
   font-size: 1.1rem;
   transition: transform 0.2s;
   text-decoration: none;
+  white-space: nowrap;          /* Empêche le texte d'aller à la ligne */
+  text-align: center;           /* Centre le texte dans le bouton */
 }
 
 .contact-platforms a:hover {
@@ -370,8 +373,8 @@ html, body, #root { height: 100%; }
 }
 
 .contact-platforms img {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
 }
 
 /* Bouton retour */
@@ -387,11 +390,11 @@ html, body, #root { height: 100%; }
   align-items: center;
   justify-content: center;
   background: url('./assets/DA/cloud.png') no-repeat center/contain;
-  width: 150px;
-  height: 80px;
+  width: clamp(160px, 18vw, 200px);
+  height: clamp(80px, 9vw, 100px);
   color: #FFF;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-shadow: 1px 3px 0 rgba(0, 0, 0, 0.25);
   -webkit-text-stroke: 5px #17006A;
   paint-order: stroke fill;
@@ -625,6 +628,7 @@ html, body, #root { height: 100%; }
 .Projets {
   min-height: auto;   /* override du 100vh défini plus haut */
   padding-bottom: 1rem;
+  padding-top: 3rem;        /* NEW: même écart que À propos */
 }
 
 
@@ -744,6 +748,40 @@ html, body, #root { height: 100%; }
   margin-right: 0.5rem;
 }
 
+/* Animation shiny pour les titres */
+@keyframes shiny-glow {
+  0%, 100% { text-shadow: 0 4px 17.7px rgba(255, 255, 255, 0.6); }
+  50% { text-shadow: 0 4px 17.7px rgba(255, 255, 255, 0.9); }
+}
+
+/* Application sur les titres principaux */
+.Projets h1,
+.About h1,
+.Contact h1,
+.Projet_Detail h1,
+.About h1,
+.Accueil p {
+  animation: shiny-glow 3s ease-in-out infinite;
+}
+
+/* Titres détail projet avec animation plus subtile */
+.projet-detail-content h1 {
+  animation: shiny-glow 4s ease-in-out infinite;
+}
+
+/* Version alternative plus rapide pour l'accueil */
+.Accueil p {
+  animation: shiny-glow 2.5s ease-in-out infinite;
+}
+
+/* Pause de l'animation au survol si souhaité */
+.Projets h1:hover,
+.About h1:hover,
+.Contact h1:hover,
+.projet-detail-content h1:hover {
+  animation-play-state: paused;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .Profil {
@@ -808,7 +846,7 @@ html, body, #root { height: 100%; }
   margin-top: 0;
   margin-bottom: 1.5rem;
   width: 100%;
-  font-size: clamp(2rem, 4.5vw, 2.5rem);
+  font-size: clamp(2rem, 4.5vw, 2.7rem);
   font-family: 'Alagard', Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
@@ -1301,5 +1339,24 @@ html, body, #root { height: 100%; }
     max-width: none;
     padding-left: 1rem;   /* réduit l’inner padding pour gagner en largeur utile */
     padding-right: 1rem;
+  }
+}
+
+/* Page Projets */
+.Projets {
+  min-height: auto;
+  padding-bottom: 1rem;
+  padding-top: 3rem;        /* NEW: même écart que À propos */
+}
+
+/* Page Contact */
+.Contact {
+  padding-top: 3rem;        /* NEW: même écart que À propos */
+}
+
+/* En mobile, on garde le padding-top de sécurité pour éviter le recouvrement du bouton retour */
+@media (max-width: 768px) {
+  .Projets, .About, .Contact, .Projet_Detail, .Legal { 
+    padding-top: 5.25rem; /* override les padding-top ci-dessus sur mobile */
   }
 }
