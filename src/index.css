@@ -14,9 +14,7 @@
 }
 
 body {
-  /*background: linear-gradient(to bottom, #17006A 0%, #7E00D2 100%);*/
   background: url('/DA/bg.png') no-repeat;
-  
   background-size: cover;
   font-family: 'Alagard', Arial, sans-serif;
   color: #fff;
@@ -750,7 +748,7 @@ html, body, #root { height: 100%; }
 
 /* Animation shiny pour les titres */
 @keyframes shiny-glow {
-  0%, 100% { text-shadow: 0 4px 17.7px rgba(255, 255, 255, 0.6); }
+  0%, 100% { text-shadow: 0 4px 17.7px rgba(255, 255, 255, 0.5); }
   50% { text-shadow: 0 4px 17.7px rgba(255, 255, 255, 0.9); }
 }
 
