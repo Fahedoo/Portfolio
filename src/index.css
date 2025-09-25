@@ -420,7 +420,7 @@ html, body, #root { height: 100%; }
 }
 
 .projet-detail-opaque {
-  margin: 5rem auto 2rem auto;
+  margin: 5rem auto 0 auto;           /* supprime complètement le margin-bottom desktop */
   max-width: 1180px;                  /* was 1100px */
   background: rgba(32, 18, 70, 0.92);
   border-radius: 1.5rem;
@@ -429,7 +429,7 @@ html, body, #root { height: 100%; }
   display: flex;
   flex-direction: column;
 }
-@media (max-width: 768px) { .projet-detail-opaque { margin: 3.5rem auto 1.25rem auto; padding: 1.5rem 1rem; } }
+@media (max-width: 768px) { .projet-detail-opaque { margin: 3.5rem auto 0.5rem auto; padding: 1.5rem 1rem; } }
 
 .projet-detail-grid {
   display: flex;
@@ -1022,6 +1022,16 @@ html, body, #root { height: 100%; }
   backdrop-filter: saturate(125%) blur(6px);
   margin-top: 0.5rem; /* au lieu de 3rem */
 }
+
+/* Footer plus proche sur la page projet détaillé (desktop seulement) */
+@media (min-width: 769px) {
+  .Projet_Detail .SiteFooter {
+    margin-top: 0 !important;
+  }
+}
+.Contact .SiteFooter {
+  margin-top: 0 !important;
+}
 .SiteFooter .Footer-inner {
   width: 90%;
   max-width: 1440px;
@@ -1352,6 +1362,7 @@ html, body, #root { height: 100%; }
 /* Page Contact */
 .Contact {
   padding-top: 3rem;        /* NEW: même écart que À propos */
+  padding-bottom: 0.5rem;   /* réduire l'écart avec le footer */
 }
 
 /* En mobile, on garde le padding-top de sécurité pour éviter le recouvrement du bouton retour */
