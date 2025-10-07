@@ -57,7 +57,6 @@ export default function Footer() {
               <li><Link to="/mentions-legales">Mentions légales</Link></li>
             </ul>
             <div className="Footer-credits">
-              <p>Site designé sur <a href="https://www.figma.com/" target="_blank" rel="noopener noreferrer">Figma</a> et développé en <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>.</p>
               <p>© {new Date().getFullYear()} Fahed ISMAILI ALAOUI. Tous droits réservés.</p>
             </div>
           </div>

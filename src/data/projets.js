@@ -7,7 +7,9 @@ const projets = [
     descriptionCourte: "Le site que vous avez sous les yeux !.",
     descriptionLongue: [
       "Indispensable pour un développeur, ce portfolio est une interface professionnelle accessible à tous permettant de mettre en valeur mes compétences et mon expérience, me présenter pour qu'on en apprenne plus sur moi mais aussi de me contacter si intéressé !",
-      "Ce projet m'a permis de mettre en pratique mes compétences en React, en gestion de routing, et en design responsive.",
+      "Ce projet m'a permis de mettre en pratique mes compétences acquises en React, en gestion de routing, et en design responsive.",
+      "J'ai profité de ce projet pour apprendre à utiliser des outils comme Git pour la gestion de versions, comme Node.js pour développer le site , ou encore comme Notion pour la gestion de tâches et l'organisation.",
+      "Il est en constante évolution, n'hésitez pas à revenir le voir de temps en temps !",
     ],
     miniature: "/projets/portfolio/pf_tn.png",
     images: [
