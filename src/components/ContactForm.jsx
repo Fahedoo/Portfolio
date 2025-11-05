@@ -1,32 +1,44 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
-
 export default function ContactForm() {
   const form = useRef();
   const [status, setStatus] = useState('');
+  const [sending, setSending] = useState(false);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
-    setStatus('Envoi en cours...');
+    setStatus('');
+    setSending(true);
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, 
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
-        form.current, 
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(
-        (result) => {
-          setStatus('Message envoyé avec succès ✅');
-          form.current.reset();
-        },
-        (error) => {
-          setStatus("Erreur lors de l'envoi ❌");
-          console.error(error);
-        }
+    const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      console.error('EmailJS: missing env vars', { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY });
+      setStatus('Erreur : configuration EmailJS manquante. Vérifiez vos variables d\'environnement.');
+      setSending(false);
+      return;
+    }
+
+    try {
+      const result = await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        e.target,
+        PUBLIC_KEY
       );
+      console.log('EmailJS result:', result);
+      setStatus('Message envoyé ✅');
+      e.target.reset();
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      const msg = error?.text || error?.message || JSON.stringify(error);
+      setStatus(`Erreur lors de l'envoi : ${msg}`);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -50,4 +62,4 @@ export default function ContactForm() {
       {status && <p className="form-status">{status}</p>}
     </div>
   );
-};
+}
