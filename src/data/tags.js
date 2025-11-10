@@ -66,6 +66,28 @@ const tags = [
         href: "https://react.dev/"
     },
     {
+        label: "Python",
+        imgSrc: "https://img.icons8.com/color/48/python--v1.png",
+        bgColorLight: "#d9f2e6",
+        bgColorDark: "#3776ab",
+        borderColorLight: "#a3d6bf",
+        borderColorDark: "#234567",
+        textColorLight: "#2e6994",
+        textColorDark: "#ffd43b",
+        href: "https://www.python.org/"
+    },
+    {
+        label: "CMS",
+        imgSrc: "https://img.icons8.com/color/48/cms.png",
+        bgColorLight: "#f0e6ff",
+        bgColorDark: "#5a2db3",
+        borderColorLight: "#d8bfff",
+        borderColorDark: "#3f167a",
+        textColorLight: "#6b3bbd",
+        textColorDark: "#fff",
+        href: "https://fr.wikipedia.org/wiki/Système_de_gestion_de_contenu"
+    },
+    {
         label: "Figma",
         imgSrc: "https://img.icons8.com/color/48/figma--v1.png",
         bgColorLight: "#e9d9ff",
@@ -76,17 +98,6 @@ const tags = [
         textColorDark: "#fff",
         href: "https://www.figma.com/"
     },
-    {
-        label: "Python",
-        imgSrc: "https://img.icons8.com/color/48/python--v1.png",
-        bgColorLight: "#d9f2e6",
-        bgColorDark: "#3776ab",
-        borderColorLight: "#a3d6bf",
-        borderColorDark: "#234567",
-        textColorLight: "#2e6994",
-        textColorDark: "#ffd43b",
-        href: "https://www.python.org/"
-    }
 ];
 
 export default tags;
