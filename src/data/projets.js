@@ -34,7 +34,6 @@ const projets = [
     images: [
         "/projets/niltiplication/nilti_1.png",
         "/projets/niltiplication/nilti_2.png",
-        "https://i.pinimg.com/736x/07/e7/5e/07e75ee348a4ee46de99cdb397bdf1a6.jpg"
     ],
     tags: tagsLib.filter(t => ["PHP", "HTML", "CSS","SQL",].includes(t.label)),
     type: "universitaire",
