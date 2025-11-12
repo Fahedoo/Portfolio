@@ -98,6 +98,17 @@ const tags = [
         textColorDark: "#fff",
         href: "https://www.figma.com/"
     },
+    {
+        label: "Vidéo",
+        imgSrc: "https://img.icons8.com/color/48/video.png",
+        bgColorLight: "#fff0d9",
+        bgColorDark: "#ff6b00",
+        borderColorLight: "#ffd6a3",
+        borderColorDark: "#cc5200",
+        textColorLight: "#b85c00",
+        textColorDark: "#fff",
+        href: "https://developer.mozilla.org/fr/docs/Web/HTML/Element/video"
+    }
 ];
 
 export default tags;

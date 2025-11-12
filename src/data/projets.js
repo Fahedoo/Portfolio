@@ -81,7 +81,7 @@ const projets = [
         "/projets/nightofterror/nightofterror_2.png",
         "https://youtu.be/wDbeLCPEWOw",
     ],
-    tags: tagsLib.filter(t => ["Figma","CMS" ].includes(t.label)),
+    tags: tagsLib.filter(t => ["Vidéo"].includes(t.label)),
     type: "universitaire",
     date: "Février/Mai 2024",
     lien: "https://www.figma.com/files/team/1421445728417612243/project/336920980/SAE-202?fuid=1458413657705650364"
