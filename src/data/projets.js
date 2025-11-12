@@ -63,6 +63,29 @@ const projets = [
     date: "Janvier/Mai 2025",
     lien: "https://jjba-manga.jimdofree.com"
   },
+
+  // Site Manga présentation
+  {
+    slug: "nightofterror",
+    titre: "Night of Terror",
+    descriptionCourte: "Projet universitaire sur un jeu innovant.",
+    descriptionLongue: [
+      "Ce projet a été réalisé dans le cadre d'un projet universitaire consistant à réaliser une stratégie de communication sur un produit, ici en l'occurrence un jeu vidéo (sans vraiment développer le jeu).",
+      "Il s'agit d'un jeu Battle Royale d'horreur inspiré des classiques du genre, avec une ambiance sombre et une narration immersive. Avec nos coéquipiers, nous l'avons baptisé 'Night of Terror'.",
+      "J'ai été désigné comme chef de projet et ai donc été chargé de déléguer les tâches, gérer les délais et motiver mon équipe. J'ai aussi contribué personnellement à la vidéo publicitaire du jeu, en utilisant mes compétences en montage vidéo, mais aussi à la maquette du site vitrine et même à un début de développement du site. Malheureusement, le site n'est pas abouti, car les consignes étaient mal interprêtées par mon équipe.",
+      "Ce fut une expérience enrichissante qui m'a donné un aperçu des défis de la gestion d'un projet, notamment en matière de communication et de collaboration au sein de l'équipe. J'ai eu la chance de travailler avec des coéquipiers talentueux et passionnés, qui sont qui plus est mes amis les plus proches, ce qui a rendu le projet encore plus gratifiant !"
+    ],
+    miniature: "/projets/nightofterror/nightofterror_tn.png",
+    images: [
+        "/projets/nightofterror/nightofterror_1.png",
+        "/projets/nightofterror/nightofterror_2.png",
+        "https://youtu.be/wDbeLCPEWOw",
+    ],
+    tags: tagsLib.filter(t => ["Figma","CMS" ].includes(t.label)),
+    type: "universitaire",
+    date: "Février/Mai 2024",
+    lien: "https://www.figma.com/files/team/1421445728417612243/project/336920980/SAE-202?fuid=1458413657705650364"
+  },
 ];
 
 export default projets;
