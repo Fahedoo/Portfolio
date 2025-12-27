@@ -13,6 +13,12 @@ export default function Accueil(){
                 <Nuage section="/a_propos" name="A propos"/>
                 <Nuage section="/contact" name="Contact"/>
             </nav>
+            <div className="home_profile">
+
+            </div>
+            <div className="home_projects">
+
+            </div>
         </div>
     )
 }
