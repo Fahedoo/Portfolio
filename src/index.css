@@ -1,5 +1,11 @@
 /* Police personnalisée */
 @import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+@font-face {
+  font-family: 'Alagard';
+  src: url('/DA/alagard.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* Styles globaux */
 * {
@@ -104,6 +110,7 @@ html, body, #root { height: 100%; }
   align-items: center;
   justify-content: center;
   background: url('/DA/cloud.png') no-repeat center/contain;
+  font-family: 'Alagard', Arial, sans-serif;
   color: #FFF;
   text-align: center;
   text-shadow: -9px 8px 0 #17006A80;
@@ -385,6 +392,7 @@ html, body, #root { height: 100%; }
   background: url('./assets/DA/cloud.png') no-repeat center/contain;
   width: clamp(160px, 18vw, 200px);
   height: clamp(80px, 9vw, 100px);
+  font-family: 'Alagard', Arial, sans-serif;
   color: #FFF;
   text-decoration: none;
   font-size: 2rem;
@@ -680,7 +688,7 @@ html, body, #root { height: 100%; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 0.7rem;
+  margin: 0.35rem 0 0;
   justify-content: center;
 }
 
@@ -689,7 +697,7 @@ html, body, #root { height: 100%; }
   font-family: 'Gloock', Arial, sans-serif;
   font-weight: bold;
   text-align: center;
-  margin: 0.5rem 0 0 0;
+  margin: 0.6rem 0 0.15rem 0;
   color: #fff;
   transition: color 0.2s;
 }
