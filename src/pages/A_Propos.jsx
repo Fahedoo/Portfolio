@@ -1,6 +1,5 @@
 import Nuage from "../components/Nuage";
 import IconButton from "../components/IconButton";
-import Footer from "../components/Footer";
 
 export default function A_Propos() {
   return (
@@ -12,8 +11,6 @@ export default function A_Propos() {
           <img src="/DA/fahed.jpg" alt="Moi" />
           <div className="SousCarte">
             <h3>Fahed ISMAILI ALAOUI</h3>
-            <h5>Alias:</h5>
-            <h3>Fahedoo</h3>
           </div>
         </section>
         <section className="ContenuProfil">
