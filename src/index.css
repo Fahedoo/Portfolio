@@ -1,6 +1,6 @@
 /* Police personnalisée */
 @font-face {
-  font-family: 'Alagard';
+  font-family: 'Gloock';
   src: url('/DA/alagard.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -16,7 +16,7 @@
 body {
   background: url('/DA/bg.png') no-repeat;
   background-size: cover;
-  font-family: 'Alagard', Arial, sans-serif;
+  font-family: 'Gloock', Arial, sans-serif;
   color: #fff;
   line-height: 1.6;
   min-height: 100vh;
@@ -332,7 +332,7 @@ html, body, #root { height: 100%; }
   padding: 0.8rem 2rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  font-family: 'Alagard';
+  font-family: 'Gloock';
   font-size: 1.1rem;
   transition: transform 0.2s;
 }
@@ -691,7 +691,7 @@ html, body, #root { height: 100%; }
 
 .projet-titre {
   font-size: 1.15rem;
-  font-family: 'Alagard', Arial, sans-serif;
+  font-family: 'Gloock', Arial, sans-serif;
   font-weight: bold;
   text-align: center;
   margin: 0.5rem 0 0 0;
@@ -845,7 +845,7 @@ html, body, #root { height: 100%; }
   margin-bottom: 1.5rem;
   width: 100%;
   font-size: clamp(2rem, 4.5vw, 2.7rem);
-  font-family: 'Alagard', Arial, sans-serif;
+  font-family: 'Gloock', Arial, sans-serif;
   font-weight: bold;
   letter-spacing: 1px;
   text-shadow: 0 4px 17.7px rgba(255, 255, 255, 0.80);
@@ -1052,7 +1052,7 @@ html, body, #root { height: 100%; }
   box-shadow: 0 2px 12px rgba(23,0,106,0.25);
 }
 .Footer-name {
-  font-size: 1.8rem; color: #e0eaff; font-family: 'Alagard', Arial, sans-serif;
+  font-size: 1.8rem; color: #e0eaff; font-family: 'Gloock', Arial, sans-serif;
   text-shadow: 0 2px 12px rgba(255,255,255,0.25);
 }
 
@@ -1150,7 +1150,7 @@ html, body, #root { height: 100%; }
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: clamp(1.6rem, 4.5vw, 2.4rem);
-  font-family: 'Alagard', Arial, sans-serif;
+  font-family: 'Gloock', Arial, sans-serif;
   color: #fff;
   text-shadow: 0 4px 18px rgba(255,255,255,0.8);
 }
