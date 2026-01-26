@@ -5,7 +5,7 @@ export default function Accueil(){
         <div className="Accueil">
             <div className="en-tête">
                 <p>Fahed ISMAILI ALAOUI</p>
-                <p>Developpeur Web</p>
+                <p>Developpeur Fullstack</p>
                 <p>a la recherche d'un stage pour Avril 2026 !</p>
             </div>
             <nav>
