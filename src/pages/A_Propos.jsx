@@ -11,8 +11,8 @@ export default function A_Propos() {
           <img src="/DA/fahed.jpg" alt="Moi" />
           <div className="SousCarte">
             <h3>Fahed ISMAILI ALAOUI</h3>
-            <h2>Étudiant en BUT Métiers du Multimédia et de l’Internet</h2>
-            <h2>Développeur Fullstack Junior</h2>
+            <h5>Etudiant en BUT Métiers du Multimédia et de l’Internet</h5>
+            <h5>Développeur Fullstack Junior</h5>
           </div>
         </section>
         <section className="ContenuProfil">
