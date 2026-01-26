@@ -103,6 +103,7 @@ export default function ProjetsList() {
               alt={projet.titre}
               className="projet-thumbnail"
             />
+            <h3 className="projet-titre">{projet.titre}</h3>
             <div className="projet-tags-row">
               {/* Type comme tag */}
               <Tag
@@ -144,7 +145,6 @@ export default function ProjetsList() {
                 </span>
               ))}
             </div>
-            <h3 className="projet-titre">{projet.titre}</h3>
           </Link>
         ))}
         {projetsFiltres.length === 0 && <div>Aucun projet ne correspond a ce filtre.</div>}
