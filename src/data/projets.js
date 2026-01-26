@@ -14,6 +14,7 @@ const projets = [
     ],
     miniature: "/projets/portfolio/pf_tn.png",
     images: [
+      "/projets/portfolio/pf_tn.png",
       "/projets/portfolio/pf_1.png",
       "/projets/portfolio/pf_2.png",
       "/projets/portfolio/pf_tn.png"
@@ -32,6 +33,7 @@ const projets = [
     descriptionLongue: "Dans le cadre des SAE 105/203 de ma formation en BUT MMI, j'ai été amené à réaliser dans un premier temps un site éducationnel sur la multiplication égyptienne, puis plus tard réadapter l'architecture sous format MVC et d'apporter des améliorations au site (connexions, ajout de commentaires..).",
     miniature: "/projets/niltiplication/nilti_tn.png",
     images: [
+        "/projets/niltiplication/nilti_tn.png",
         "/projets/niltiplication/nilti_1.png",
         "/projets/niltiplication/nilti_2.png",
     ],
@@ -54,6 +56,7 @@ const projets = [
     ],
     miniature: "/projets/manga-presentation/manga_tn.png",
     images: [
+      "/projets/manga-presentation/manga_tn.png",
         "/projets/manga-presentation/manga_1.png",
         "/projets/manga-presentation/manga_2.png",
         "https://i.pinimg.com/736x/07/e7/5e/07e75ee348a4ee46de99cdb397bdf1a6.jpg"
@@ -75,10 +78,12 @@ const projets = [
       "J'ai été désigné comme chef de projet et ai donc été chargé de déléguer les tâches, gérer les délais et motiver mon équipe. J'ai aussi contribué personnellement à la vidéo publicitaire du jeu, en utilisant mes compétences en montage vidéo, mais aussi à la maquette du site vitrine et même à un début de développement du site. Malheureusement, le site n'est pas abouti, car les consignes étaient mal interprêtées par mon équipe.",
       "Ce fut une expérience enrichissante qui m'a donné un aperçu des défis de la gestion d'un projet, notamment en matière de communication et de collaboration au sein de l'équipe. J'ai eu la chance de travailler avec des coéquipiers talentueux et passionnés, qui sont qui plus est mes amis les plus proches, ce qui a rendu le projet encore plus gratifiant !"
     ],
-    miniature: "/projets/nightofterror/nightofterror_tn.png",
+    miniature: "/projets/nightofterror/nightofterror_tn.svg",
     images: [
-        "/projets/nightofterror/nightofterror_1.png",
-        "/projets/nightofterror/nightofterror_2.png",
+      "/projets/nightofterror/nightofterror_tn.svg",
+        "/projets/nightofterror/nightofterror_1.svg",
+        "/projets/nightofterror/nightofterror_2.svg",
+        "/projets/nightofterror/nightofterror_3.svg",
         "https://youtu.be/wDbeLCPEWOw",
     ],
     tags: tagsLib.filter(t => ["Vidéo"].includes(t.label)),
