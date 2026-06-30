@@ -6,7 +6,7 @@ export default function Accueil(){
             <div className="en-tête">
                 <p>Fahed ISMAILI ALAOUI</p>
                 <p>Developpeur Fullstack</p>
-                <p>a la recherche d'un stage pour Avril 2026 !</p>
+                <p>a la recherche d'une alternance pour Septembre 2026 !</p>
             </div>
             <nav>
                 <Nuage section="/projets" name="Projets"/>
