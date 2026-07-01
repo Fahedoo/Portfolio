@@ -50,10 +50,10 @@ export default function Footer() {
           </div>
           <div className="Footer-right">
             <ul className="Footer-nav">
-              <li><Link to="/">Accueil</Link></li>
-              <li><Link to="/projets">Projets</Link></li>
-              <li><Link to="/a_propos">À propos</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/">Accueil</Link></li>
+          <li><Link to="/#projets">Projets</Link></li>
+          <li><Link to="/#apropos">À propos</Link></li>
+          <li><Link to="/#contact">Contact</Link></li>
               <li><Link to="/mentions-legales">Mentions légales</Link></li>
             </ul>
             <div className="Footer-credits">

@@ -12,7 +12,7 @@ const typesProjet = [
 
 const VISIBLE_TAGS = 3;
 
-export default function ProjetsList() {
+export default function ProjetsList({ limit, showFilters = true }) {
   const [filtreOuvert, setFiltreOuvert] = useState(false);
   const [filtreType, setFiltreType] = useState("");
   const [filtreTags, setFiltreTags] = useState([]);
@@ -35,21 +35,25 @@ export default function ProjetsList() {
     (filtreTags.length === 0 || filtreTags.every(tag => p.tags.some(t => t.label === tag)))
   );
 
+  const projetsAffiches = limit ? projetsFiltres.slice(0, limit) : projetsFiltres;
+
   return (
     <div>
-      <button
-        className="filtrage-toggle"
-        onClick={() => setFiltreOuvert(o => !o)}
-        aria-expanded={filtreOuvert}
-        aria-controls="filtrageBar"
-      >
-        {filtreOuvert ? "Masquer les filtres" : "Afficher les filtres"}
-      </button>
+      {showFilters && (
+        <>
+          <button
+            className="filtrage-toggle"
+            onClick={() => setFiltreOuvert(o => !o)}
+            aria-expanded={filtreOuvert}
+            aria-controls="filtrageBar"
+          >
+            {filtreOuvert ? "Masquer les filtres" : "Afficher les filtres"}
+          </button>
 
-      <div
-        id="filtrageBar"
-        className={`filtrage-collapsible ${filtreOuvert ? "open" : ""}`}
-      >
+          <div
+            id="filtrageBar"
+            className={`filtrage-collapsible ${filtreOuvert ? "open" : ""}`}
+          >
         <div className="filtrage-bar">
           <div className="filtrage-type-row">
             <span className="filtrage-type-label">Type :</span>
@@ -90,9 +94,11 @@ export default function ProjetsList() {
             </div>
           </div>
         </div>
-      </div>
+          </div>
+        </>
+      )}
       <div className="liste-projets">
-        {projetsFiltres.map(projet => (
+        {projetsAffiches.map(projet => (
           <Link
             key={projet.slug}
             to={`/projets/${projet.slug}`}
