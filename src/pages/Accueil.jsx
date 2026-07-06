@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import Nuage from "../components/Nuage";
+import SiteNav from "../components/SiteNav";
 import AboutBento from "../components/AboutBento";
 import ProjetsList from "../components/ProjetsList";
 import ContactForm from "../components/ContactForm";
@@ -33,10 +33,10 @@ export default function Accueil() {
           <p>Developpeur Fullstack</p>
           <p>à la recherche d'une alternance pour Septembre 2026 !</p>
         </div>
-        <nav aria-label="Navigation principale">
-          <Nuage section="#apropos" name="A propos" />
-          <Nuage section="#projets" name="Projets" />
-          <Nuage section="#contact" name="Contact" />
+        <nav className="spa-nav" aria-label="Navigation principale">
+          <SiteNav section="#apropos" name="À propos" />
+          <SiteNav section="#projets" name="Projets" />
+          <SiteNav section="#contact" name="Contact" />
         </nav>
       </header>
 

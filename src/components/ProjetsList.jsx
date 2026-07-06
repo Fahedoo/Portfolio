@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import projets from "../data/projets";
-import { Link } from "react-router-dom";
 import Tag from "./Tag";
+import ProjetModal from "./ProjetModal";
 
 const typesProjet = [
   { value: "", label: "Tous" },
@@ -16,6 +16,7 @@ export default function ProjetsList({ limit, showFilters = true }) {
   const [filtreOuvert, setFiltreOuvert] = useState(false);
   const [filtreType, setFiltreType] = useState("");
   const [filtreTags, setFiltreTags] = useState([]);
+  const [selectedProjet, setSelectedProjet] = useState(null);
 
   // Récupère tous les tags uniques (par label)
   const allTags = Array.from(
@@ -99,10 +100,11 @@ export default function ProjetsList({ limit, showFilters = true }) {
       )}
       <div className="liste-projets">
         {projetsAffiches.map(projet => (
-          <Link
+          <button
+            type="button"
             key={projet.slug}
-            to={`/projets/${projet.slug}`}
             className="projet-card"
+            onClick={() => setSelectedProjet(projet)}
           >
             <img
               src={projet.miniature}
@@ -151,10 +153,17 @@ export default function ProjetsList({ limit, showFilters = true }) {
                 </span>
               ))}
             </div>
-          </Link>
+          </button>
         ))}
         {projetsFiltres.length === 0 && <div>Aucun projet ne correspond a ce filtre.</div>}
       </div>
+
+      {selectedProjet && (
+        <ProjetModal
+          projet={selectedProjet}
+          onClose={() => setSelectedProjet(null)}
+        />
+      )}
     </div>
   );
 }

@@ -21,7 +21,7 @@ export default function AboutBento() {
   return (
     <div className="bento-grid">
       <article className="bento-card bento-profile">
-        <img src="/DA/fahed.jpg" alt="Fahed ISMAILI ALAOUI" />
+        <img src="/DA/fahed_pp.jpg" alt="Fahed ISMAILI ALAOUI" />
         <div>
           <h3>Fahed ISMAILI ALAOUI</h3>
           <p className="bento-subtitle">Étudiant BUT MMI · Développeur Fullstack Junior</p>

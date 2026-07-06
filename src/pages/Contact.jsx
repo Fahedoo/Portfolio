@@ -1,4 +1,4 @@
-import Nuage from "../components/Nuage";
+import SiteNav from "../components/SiteNav";
 import ContactForm from "../components/ContactForm";
 
 
@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <div className="Contact">
       <h1>Contact</h1>
-      <Nuage retour={true} />
+      <SiteNav retour={true} />
       <div className="contact-container">
         <div className="contact-form">
           <ContactForm />

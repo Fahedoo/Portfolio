@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import projets from "../data/projets";
-import Nuage from "../components/Nuage";
+import SiteNav from "../components/SiteNav";
 import Tag from "../components/Tag";
 import Carousel from "../components/Carousel";
 
@@ -14,7 +14,7 @@ export default function ProjetDetail() {
 
   return (
     <div className="Projet_Detail">
-      <Nuage retour="/projets" />
+      <SiteNav retour="/projets" />
       <div className="projet-detail-opaque">
         <div className="projet-detail-grid">
           <div className="projet-detail-carousel">

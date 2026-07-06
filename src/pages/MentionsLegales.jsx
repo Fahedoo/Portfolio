@@ -1,10 +1,10 @@
-import Nuage from "../components/Nuage";
+import SiteNav from "../components/SiteNav";
 
 export default function MentionsLegales() {
   return (
     <div className="Legal">
       <h1>Mentions légales</h1>
-      <Nuage retour={true} />
+      <SiteNav retour={true} />
       <div className="legal-opaque">
         <section>
           <h2>Éditeur du site</h2>

@@ -1,11 +1,11 @@
-import Nuage from "../components/Nuage";
+import SiteNav from "../components/SiteNav";
 import IconButton from "../components/IconButton";
 
 export default function A_Propos() {
   return (
     <div className="About">
       <h1>A propos de moi</h1>
-      <Nuage retour={true} />
+      <SiteNav retour={true} />
       <div className="Profil">
         <section className="CarteProfil">
           <img src="/DA/fahed.jpg" alt="Moi" />

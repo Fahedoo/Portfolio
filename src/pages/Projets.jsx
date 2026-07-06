@@ -1,5 +1,5 @@
 import Footer from "../components/Footer"
-import Nuage from "../components/Nuage"
+import SiteNav from "../components/SiteNav"
 import ProjetsList from "../components/ProjetsList"
 
 export default function Projets() {
@@ -7,7 +7,7 @@ export default function Projets() {
     <div className="Projets">
         <h1>Projets</h1>
         <div className="ProjectList">
-          <Nuage retour={true}/>
+          <SiteNav retour={true}/>
           <ProjetsList/>
         </div>
     </div>
