@@ -1,4 +1,5 @@
 import IconButton from "./IconButton";
+import profilePhoto from "../assets/DA/fahed_pp.jpg";
 
 const skills = [
   { href: "https://developer.mozilla.org/fr/docs/Web/HTML", imgSrc: "https://img.icons8.com/color/48/html-5--v1.png", label: "HTML", tooltip: "Langage de structure", bgColorLight: "#ffe5e0", borderColorLight: "#ffbfa3", textColorLight: "#e34c26" },
@@ -21,7 +22,7 @@ export default function AboutBento() {
   return (
     <div className="bento-grid">
       <article className="bento-card bento-profile">
-        <img src="/DA/fahed_pp.jpg" alt="Fahed ISMAILI ALAOUI" />
+        <img src={profilePhoto} alt="Fahed ISMAILI ALAOUI" />
         <div>
           <h3>Fahed ISMAILI ALAOUI</h3>
           <p className="bento-subtitle">Étudiant BUT MMI · Développeur Fullstack Junior</p>
