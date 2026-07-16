@@ -28,7 +28,7 @@ export default function AboutBento() {
           <p className="bento-subtitle">Étudiant BUT MMI · Développeur Fullstack Junior</p>
           <a
             href="/CV_Fahed.pdf"
-            download="CV_Fahed_IA.pdf"
+            download="CV_Fahed-IA.pdf"
             className="bento-cv-link"
           >
             Télécharger mon CV
