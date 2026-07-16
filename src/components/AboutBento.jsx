@@ -27,7 +27,7 @@ export default function AboutBento() {
           <h3>Fahed ISMAILI ALAOUI</h3>
           <p className="bento-subtitle">Étudiant BUT MMI · Développeur Fullstack Junior</p>
           <a
-            href="/CV_Fahed.pdf"
+            href="/CV_Fahed-IA.pdf"
             download="CV_Fahed-IA.pdf"
             className="bento-cv-link"
           >
