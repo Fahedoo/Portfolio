@@ -23,9 +23,16 @@ export default function AboutBento() {
     <div className="bento-grid">
       <article className="bento-card bento-profile">
         <img src={profilePhoto} alt="Fahed ISMAILI ALAOUI" />
-        <div>
+        <div className="bento-profile-info">
           <h3>Fahed ISMAILI ALAOUI</h3>
           <p className="bento-subtitle">Étudiant BUT MMI · Développeur Fullstack Junior</p>
+          <a
+            href="/CV_Fahed.pdf"
+            download="CV_Fahed_IA.pdf"
+            className="bento-cv-link"
+          >
+            Télécharger mon CV
+          </a>
         </div>
       </article>
 
