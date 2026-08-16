@@ -112,6 +112,7 @@ export default function ProjetsList({ limit, showFilters = true }) {
               className="projet-thumbnail"
             />
             <h3 className="projet-titre">{projet.titre}</h3>
+            
             <div className="projet-tags-row">
               {/* Type comme tag */}
               <Tag

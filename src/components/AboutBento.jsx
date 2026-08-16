@@ -10,12 +10,14 @@ const skills = [
   { href: "https://react.dev/", imgSrc: "https://img.icons8.com/color/48/react-native.png", label: "React", tooltip: "UI réactive", bgColorLight: "#e0f7ff", borderColorLight: "#a3e7ff", textColorLight: "#54bfddff" },
   { href: "https://www.figma.com/", imgSrc: "https://img.icons8.com/color/48/figma--v1.png", label: "Figma", tooltip: "Design d'interface", bgColorLight: "#f3eaff", borderColorLight: "#d1a3ff", textColorLight: "#a259ff" },
   { href: "https://www.python.org/", imgSrc: "https://img.icons8.com/color/48/python--v1.png", label: "Python", tooltip: "Scripts & data", bgColorLight: "#eafaf1", borderColorLight: "#b3e6d1", textColorLight: "#3776ab" },
+  { href: "https://git-scm.com/", imgSrc: "https://img.icons8.com/color/48/git.png", label: "Git", tooltip: "Versioning & collaboration", bgColorLight: "#ffe8e0", borderColorLight: "#ffb39a", textColorLight: "#f05033" },
+  { href: "https://www.notion.so/", imgSrc: "https://img.icons8.com/color/48/notion.png", label: "Notion", tooltip: "Organisation & docs", bgColorLight: "#f0f0f0", borderColorLight: "#cfcfcf", textColorLight: "#37352f" },
 ];
 
 const passions = [
-  { title: "Photo & vidéo", text: "Capturer des moments et exprimer ma créativité visuelle." },
-  { title: "Montage", text: "Montages dynamiques, notamment autour des mangas." },
-  { title: "Musique", text: "Piano et oreille musicale — toujours en progression !" },
+  { emoji: "📸", title: "Photo & vidéo", text: "Capturer des moments et exprimer ma créativité visuelle." },
+  { emoji: "🎬", title: "Montage", text: "Montages dynamiques, notamment autour des mangas." },
+  { emoji: "🎹", title: "Musique", text: "Piano et oreille musicale — toujours en progression !" },
 ];
 
 export default function AboutBento() {
@@ -39,13 +41,19 @@ export default function AboutBento() {
       <article className="bento-card bento-bio">
         <h2>Moi, c'est Fahed !</h2>
         <p>
-          Plongé dans <b>l'informatique</b> depuis l'enfance, j'ai trouvé ma voie en{" "}
-          <b>développement</b> au cours de mon BUT MMI : résoudre des problèmes et
-          transformer des idées en expériences web performantes.
+          Depuis le plus jeune âge, j'ai baigné dans le <b>monde d'Internet</b> :
+          jeux vidéo, vidéos YouTube, forums, memes… toute cette culture en ligne
+          a façonné ma curiosité et ma façon de voir le numérique.
         </p>
         <p>
-          Passionné par la création numérique, j'allie code et créativité pour des
-          résultats sur mesure.
+          Au fil du temps, consommer du contenu ne me suffisait plus : j'avais
+          envie de <b>créer</b>, de comprendre ce qu'il y a derrière les écrans
+          et de construire moi-même des expériences web.
+        </p>
+        <p>
+          C'est en <b>BUT MMI</b> que j'ai trouvé ma voie principale dans le{" "}
+          <b>développement</b> : résoudre des problèmes, allier code et
+          créativité, et transformer des idées en projets concrets.
         </p>
       </article>
 
@@ -58,21 +66,28 @@ export default function AboutBento() {
         </div>
       </article>
 
+      <article className="bento-card bento-cta">
+        <span className="bento-cta-label">Disponibilité</span>
+        <p>
+          Alternance · <b>Sept. 2026</b>
+        </p>
+      </article>
+
       <article className="bento-card bento-passions">
         <h2>Passions</h2>
         <div className="bento-passions-grid">
           {passions.map((p) => (
             <div key={p.title} className="bento-passion-item">
-              <strong>{p.title}</strong>
+              <strong>
+                <span className="bento-passion-emoji" aria-hidden="true">
+                  {p.emoji}
+                </span>
+                {p.title}
+              </strong>
               <p>{p.text}</p>
             </div>
           ))}
         </div>
-      </article>
-
-      <article className="bento-card bento-cta">
-        <span className="bento-cta-label">Disponibilité</span>
-        <p>À la recherche d'une <b>alternance</b> pour <b>Septembre 2026</b> !</p>
       </article>
     </div>
   );
