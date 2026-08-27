@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import SiteNav from "../components/SiteNav";
 import AboutBento from "../components/AboutBento";
 import ProjetsList from "../components/ProjetsList";
@@ -7,7 +7,6 @@ import ContactForm from "../components/ContactForm";
 import Footer from "../components/Footer";
 import Iridescence from "../components/Iridescence";
 import GradientText from "../components/GradientText";
-import projets from "../data/projets";
 
 const PREVIEW_COUNT = 3;
 
@@ -20,10 +19,8 @@ const NAV_LINKS = [
 export default function Accueil() {
   const location = useLocation();
   const heroRef = useRef(null);
-  const [showAllProjects, setShowAllProjects] = useState(false);
   const [navVisible, setNavVisible] = useState(false);
   const [showBackTop, setShowBackTop] = useState(false);
-  const hasMoreProjects = projets.length > PREVIEW_COUNT;
 
   useEffect(() => {
     if (!location.hash) return;
@@ -120,19 +117,10 @@ export default function Accueil() {
 
       <section id="projets" className="spa-section spa-projects">
         <h2>Projets</h2>
-        <ProjetsList
-          limit={showAllProjects ? undefined : PREVIEW_COUNT}
-          showFilters={showAllProjects}
-        />
-        {hasMoreProjects && !showAllProjects && (
-          <button
-            type="button"
-            className="spa-voir-plus"
-            onClick={() => setShowAllProjects(true)}
-          >
-            Voir plus
-          </button>
-        )}
+        <ProjetsList limit={PREVIEW_COUNT} showFilters={false} />
+        <Link to="/projets" className="spa-voir-plus">
+          Voir plus
+        </Link>
       </section>
 
       <section id="contact" className="spa-section spa-contact">
