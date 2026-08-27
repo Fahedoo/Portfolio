@@ -10,7 +10,7 @@ export default function GradientText({
   showBorder = false,
   direction = "horizontal",
   pauseOnHover = false,
-  yoyo = true,
+  yoyo = false,
 }) {
   const [isPaused, setIsPaused] = useState(false);
   const progress = useMotionValue(0);
