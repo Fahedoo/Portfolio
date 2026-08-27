@@ -68,6 +68,12 @@
 html {
   scroll-behavior: smooth;
   height: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE / Edge legacy */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 body {
@@ -78,6 +84,12 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
