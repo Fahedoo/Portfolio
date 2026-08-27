@@ -73,11 +73,11 @@ export default function Accueil() {
             <h1 className="hero-name">Fahed ISMAILI ALAOUI</h1>
             <GradientText
               className="hero-role-gradient"
-              colors={["#9d05ed", "#d060fd", "#edcaff", "#9d05ed"]}
-              animationSpeed={2.5}
+              colors={["#8f00d5", "#f300b6"]}
+              animationSpeed={7}
               showBorder={false}
             >
-              Developpeur Fullstack
+              Développeur Fullstack
             </GradientText>
             <p className="hero-status">
               <span className="hero-status-dot" aria-hidden="true" />

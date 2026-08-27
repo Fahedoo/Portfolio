@@ -1,11 +1,17 @@
 /* ==========================================================================
    Design system — portfolio sobre, moderne (blanc, violet, rose)
    ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-  --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
-  --font-display: 'Plus Jakarta Sans', var(--font-sans);
+  /* Typographie */
+  --font-heading: 'Clash Display', system-ui, sans-serif;
+  --font-body: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+  /* Alias rétrocompatibles (utilisés dans le CSS existant) */
+  --font-display: var(--font-heading);
+  --font-sans: var(--font-body);
 
   --color-bg: #faf9fc;
   --color-surface: #ffffff;
@@ -68,10 +74,33 @@ body {
   min-height: 100vh;
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+p,
+span,
+a,
+button,
+label,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-mono);
 }
 
 img, video, canvas, svg {
@@ -96,6 +125,34 @@ img, video, canvas, svg {
 }
 
 /* ==========================================================================
+   Typographie — utilitaires
+   ========================================================================== */
+.font-heading {
+  font-family: var(--font-heading) !important;
+}
+
+.font-body {
+  font-family: var(--font-body) !important;
+}
+
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
+
+/* Tags / métadonnées → Space Mono */
+.tag,
+.projet-modal-tag,
+.projet-date,
+.bento-subtitle,
+.bento-cta-label,
+.carousel-counter,
+.filtrage-type-label,
+.filtrage-tags-label,
+.filtrage-tag {
+  font-family: var(--font-mono);
+}
+
+/* ==========================================================================
    Typographie partagée
    ========================================================================== */
 .page-title,
@@ -105,7 +162,7 @@ img, video, canvas, svg {
 .Contact h1,
 .Projet_Detail h1,
 .Legal h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: var(--text-3xl);
   font-weight: 700;
   color: var(--color-text);
@@ -1261,7 +1318,7 @@ img, video, canvas, svg {
 .projet-modal {
   position: relative;
   width: min(100%, 1040px);
-  max-height: 90vh;
+  max-height: 90vh;                 
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
