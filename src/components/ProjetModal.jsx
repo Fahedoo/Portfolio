@@ -60,11 +60,7 @@ export default function ProjetModal({ projet, onClose }) {
   if (!projet) return null;
 
   const typeLabel = projet.type.charAt(0).toUpperCase() + projet.type.slice(1);
-  const resume = projet.resume?.length
-    ? projet.resume
-    : Array.isArray(projet.descriptionLongue)
-      ? projet.descriptionLongue
-      : [projet.descriptionLongue].filter(Boolean);
+  const resume = projet.resume ?? [];
 
   return (
     <div

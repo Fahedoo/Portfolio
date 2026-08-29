@@ -47,10 +47,10 @@ export default function ProjetDetail() {
               <strong>Date :</strong> {projet.date}
             </div>
             <div className="projet-detail-desc">
-              {Array.isArray(projet.descriptionLongue)
-                ? projet.descriptionLongue.map((p, i) => <p key={i}>{p}</p>)
-                : <p>{projet.descriptionLongue}</p>
-              }
+              {projet.accroche && <p><strong>{projet.accroche}</strong></p>}
+              {(projet.resume ?? []).map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
             {(projet.lien || projet.lienRepo || projet.lienFigma) && (
               <div className="projet-detail-link">
