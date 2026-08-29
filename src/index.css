@@ -751,8 +751,11 @@ img, video, canvas, svg {
 }
 
 .spa-voir-plus {
-  margin: 1.25rem auto 0;
-  padding: 0.6rem 1.5rem;
+  display: flex;
+  width: fit-content;
+  margin: 1.75rem auto 0;
+  padding: 0.85rem 2.25rem;
+  font-size: var(--text-base);
 }
 
 .spa-voir-plus:hover,
@@ -1989,7 +1992,10 @@ img, video, canvas, svg {
     object-fit: cover;
   }
 
-  .spa-voir-plus { width: 100%; }
+  .spa-voir-plus {
+    width: auto;
+    min-width: 12rem;
+  }
 
   .contact-container {
     flex-direction: column;

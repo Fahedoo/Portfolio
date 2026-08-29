@@ -98,11 +98,11 @@ export default function Accueil() {
           <SectionLink section="#projets" className="hero-cta hero-cta--primary">
             Voir mes projets
           </SectionLink>
-          <SectionLink section="#contact" className="hero-cta hero-cta--secondary">
-            Me contacter
-          </SectionLink>
           <SectionLink section="#apropos" className="hero-cta hero-cta--secondary">
             Qui suis-je ?
+          </SectionLink>
+          <SectionLink section="#contact" className="hero-cta hero-cta--secondary">
+            Me contacter
           </SectionLink>
         </div>
       </header>
@@ -120,12 +120,12 @@ export default function Accueil() {
       </nav>
 
       <section id="apropos" className="spa-section spa-about">
-        <h2>À propos</h2>
+        <h2>À propos de moi</h2>
         <AboutBento />
       </section>
 
       <section id="projets" className="spa-section spa-projects">
-        <h2>Projets</h2>
+        <h2>Projets à la une</h2>
         <ProjetsList limit={PREVIEW_COUNT} showFilters={false} />
         <Link to="/projets" className="spa-voir-plus">
           Voir plus
