@@ -615,6 +615,7 @@ img, video, canvas, svg {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.35rem;
   width: 100%;
 }
@@ -903,6 +904,7 @@ img, video, canvas, svg {
   font-weight: 700;
   color: var(--color-text);
   margin-bottom: 1rem;
+  line-height: 1.25;
 }
 
 .contact-form label {
@@ -941,19 +943,20 @@ img, video, canvas, svg {
 .contact-platforms {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .contact-platforms a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 1rem 1.25rem;
+  gap: 0.5rem;
+  padding: 0.6rem 0.95rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border-accent);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   color: var(--color-text);
   font-size: var(--text-sm);
   font-weight: 600;
@@ -968,8 +971,9 @@ img, video, canvas, svg {
 }
 
 .contact-platforms img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
 /* ==========================================================================
@@ -1054,7 +1058,7 @@ img, video, canvas, svg {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
   width: 100%;
-  max-width: var(--container);
+  max-width: min(1280px, 96vw);
   margin: 0 auto;
 }
 
@@ -1096,7 +1100,8 @@ img, video, canvas, svg {
   position: relative;
   overflow: hidden;
   background: var(--color-surface-muted);
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
+  line-height: 0;
 }
 
 .projet-thumbnail {
@@ -1947,17 +1952,22 @@ img, video, canvas, svg {
     flex-direction: row;
     text-align: left;
     align-items: center;
+    gap: 1rem;
   }
 
   .bento-profile .bento-profile-info {
     align-items: flex-start;
     text-align: left;
+    flex: 1;
+    justify-content: center;
+    min-height: 80px;
   }
 
   .bento-profile img {
     width: 80px;
     max-width: none;
     margin: 0;
+    flex-shrink: 0;
   }
 
   .bento-passions-grid { grid-template-columns: 1fr; }
@@ -1968,12 +1978,49 @@ img, video, canvas, svg {
   }
 
   .projet-card { width: 100%; }
-  .projet-thumbnail { height: auto; aspect-ratio: 16 / 9; }
+
+  .projet-card-media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .projet-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   .spa-voir-plus { width: 100%; }
 
-  .contact-platforms { flex-direction: column; }
-  .contact-platforms a { width: 100%; }
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-platforms {
+    order: -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: stretch;
+    margin-bottom: 0.25rem;
+  }
+
+  .contact-form h3 {
+    font-size: clamp(0.95rem, 3.5vw, 1.2rem);
+    white-space: nowrap;
+  }
+
+  .contact-platforms a {
+    flex: 1 1 calc(33.333% - 0.35rem);
+    min-width: 0;
+    padding: 0.55rem 0.6rem;
+    font-size: var(--text-sm);
+    gap: 0.4rem;
+  }
+
+  .contact-platforms img {
+    width: 18px;
+    height: 18px;
+  }
 
   .projet-modal-overlay { align-items: flex-end; padding: 0; }
   .projet-modal {
@@ -2020,8 +2067,20 @@ img, video, canvas, svg {
 
 @media (max-width: 480px) {
   .bento-profile { flex-direction: column; text-align: center; }
+  .bento-profile .bento-profile-info {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    min-height: auto;
+  }
   .bento-profile img { width: 100px; margin: 0 auto; }
   .bento-skills-list { justify-content: center; }
+
+  .contact-platforms a {
+    flex: 1 1 100%;
+    font-size: var(--text-sm);
+    padding: 0.55rem 0.85rem;
+  }
 }
 
 @media (min-width: 980px) {

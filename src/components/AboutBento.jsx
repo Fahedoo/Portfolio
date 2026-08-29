@@ -27,7 +27,7 @@ export default function AboutBento() {
         <img src={profilePhoto} alt="Fahed ISMAILI ALAOUI" />
         <div className="bento-profile-info">
           <h3>Fahed ISMAILI ALAOUI</h3>
-          <p className="bento-subtitle">Étudiant BUT MMI · Développeur Fullstack Junior</p>
+          <p className="bento-subtitle">Étudiant BUT MMI · Développeur Fullstack</p>
           <a
             href="/CV_Fahed-IA.pdf"
             download="CV_Fahed-IA.pdf"

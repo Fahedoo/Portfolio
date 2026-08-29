@@ -12,7 +12,7 @@ export default function A_Propos() {
           <div className="SousCarte">
             <h3>Fahed ISMAILI ALAOUI</h3>
             <h5>Etudiant en BUT Métiers du Multimédia et de l’Internet</h5>
-            <h5>Développeur Fullstack Junior</h5>
+            <h5>Développeur Fullstack</h5>
           </div>
         </section>
         <section className="ContenuProfil">
