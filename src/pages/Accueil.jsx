@@ -88,7 +88,7 @@ export default function Accueil() {
             <p className="hero-status">
               <span className="hero-status-dot" aria-hidden="true" />
               <span className="hero-status-text">
-                Alternance ouverte · <strong>Septembre 2026</strong>
+                En recherche d'alternance · <strong>dés Septembre 2026</strong>
               </span>
             </p>
           </div>
