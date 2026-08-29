@@ -45,17 +45,22 @@ export default function ContactForm() {
     <div className="contact-form">
       <h3>Contactez moi via ce formulaire&nbsp;!</h3>
       <form ref={form} onSubmit={sendEmail}>
-        <label>Nom</label>
-        <input type="text" name="user_name" required />
+        <div className="contact-form-row">
+          <div className="contact-form-field">
+            <label htmlFor="contact-name">Nom</label>
+            <input id="contact-name" type="text" name="user_name" required />
+          </div>
+          <div className="contact-form-field">
+            <label htmlFor="contact-email">Email</label>
+            <input id="contact-email" type="email" name="user_email" required />
+          </div>
+        </div>
 
-        <label>Objet</label>
-        <input type="text" name="title" required/>
+        <label htmlFor="contact-title">Objet</label>
+        <input id="contact-title" type="text" name="title" required />
 
-        <label>Email</label>
-        <input type="email" name="user_email" required />
-
-        <label>Message</label>
-        <textarea name="message" rows="5" required />
+        <label htmlFor="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="5" required />
 
         <button type="submit">Envoyer</button>
       </form>

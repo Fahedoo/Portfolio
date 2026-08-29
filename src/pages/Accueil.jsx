@@ -144,6 +144,7 @@ export default function Accueil() {
               title="LinkedIn"
             >
               <img
+                className="contact-platform-logo"
                 src="https://img.icons8.com/fluency/96/linkedin.png"
                 alt="linkedin"
               />
@@ -156,6 +157,7 @@ export default function Accueil() {
               title="GitHub"
             >
               <img
+                className="contact-platform-logo"
                 src="https://img.icons8.com/glyph-neue/96/github.png"
                 alt="github"
               />

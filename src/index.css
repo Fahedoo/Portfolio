@@ -886,18 +886,23 @@ img, video, canvas, svg {
    ========================================================================== */
 .contact-container {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
   justify-content: center;
+  align-items: stretch;
   margin-top: 1.5rem;
   width: 100%;
+  max-width: 52rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-form {
-  flex: 1;
+  flex: 1 1 auto;
+  max-width: 28rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.35rem 1.4rem;
   box-shadow: var(--shadow-sm);
 }
 
@@ -908,6 +913,16 @@ img, video, canvas, svg {
   color: var(--color-text);
   margin-bottom: 1rem;
   line-height: 1.25;
+}
+
+.contact-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.contact-form-field {
+  min-width: 0;
 }
 
 .contact-form label {
@@ -946,22 +961,23 @@ img, video, canvas, svg {
 .contact-platforms {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
   justify-content: center;
-  flex-shrink: 0;
+  flex: 0 0 auto;
+  min-width: 13.5rem;
 }
 
 .contact-platforms a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.6rem 0.95rem;
+  gap: 0.65rem;
+  padding: 0.95rem 1.25rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border-accent);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   color: var(--color-text);
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-weight: 600;
   text-decoration: none;
   transition: background 0.2s, border-color 0.2s, transform 0.2s;
@@ -974,9 +990,14 @@ img, video, canvas, svg {
 }
 
 .contact-platforms img {
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
+}
+
+.contact-platforms img.contact-platform-logo {
+  width: 32px;
+  height: 32px;
 }
 
 /* ==========================================================================
@@ -1868,8 +1889,19 @@ img, video, canvas, svg {
   .bento-passions { grid-column: 1 / 3; grid-row: 3 / 4; }
   .bento-cta { grid-column: 1 / 3; grid-row: 4 / 5; }
 
-  .contact-container { flex-direction: column; }
-  .contact-platforms { flex-direction: row; flex-wrap: wrap; }
+  .contact-container {
+    flex-direction: column;
+    max-width: none;
+  }
+  .contact-form {
+    max-width: none;
+    width: 100%;
+  }
+  .contact-platforms {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
   .contact-platforms a { flex: 1 1 180px; }
 }
 
@@ -2001,6 +2033,16 @@ img, video, canvas, svg {
     flex-direction: column;
   }
 
+  .contact-form {
+    max-width: none;
+    width: 100%;
+  }
+
+  .contact-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
   .contact-platforms {
     order: -1;
     flex-direction: row;
@@ -2008,6 +2050,7 @@ img, video, canvas, svg {
     gap: 0.5rem;
     justify-content: stretch;
     margin-bottom: 0.25rem;
+    min-width: 0;
   }
 
   .contact-form h3 {
@@ -2026,6 +2069,11 @@ img, video, canvas, svg {
   .contact-platforms img {
     width: 18px;
     height: 18px;
+  }
+
+  .contact-platforms img.contact-platform-logo {
+    width: 22px;
+    height: 22px;
   }
 
   .projet-modal-overlay { align-items: flex-end; padding: 0; }
