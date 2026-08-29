@@ -1,10 +1,5 @@
 import { Link } from "react-router-dom";
-
-function scrollToSection(hash) {
-  const id = hash.replace("#", "");
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-}
+import { scrollToSection } from "../utils/scrollToSection";
 
 export default function SiteNav(props) {
   if (props.retour) {

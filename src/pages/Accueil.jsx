@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import SectionLink from "../components/SectionLink";
+import { scrollToSection } from "../utils/scrollToSection";
 import SiteNav from "../components/SiteNav";
 import AboutBento from "../components/AboutBento";
 import ProjetsList from "../components/ProjetsList";
@@ -18,20 +20,27 @@ const NAV_LINKS = [
 
 export default function Accueil() {
   const location = useLocation();
+  const navigate = useNavigate();
   const heroRef = useRef(null);
   const [navVisible, setNavVisible] = useState(false);
   const [showBackTop, setShowBackTop] = useState(false);
 
   useEffect(() => {
-    if (!location.hash) return;
-    const id = location.hash.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
+    const scrollTo = location.state?.scrollTo;
+    if (scrollTo) {
       requestAnimationFrame(() => {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollToSection(`#${scrollTo}`);
       });
+      navigate(location.pathname, { replace: true, state: null });
+      return;
     }
-  }, [location.hash]);
+
+    if (!location.hash) return;
+    requestAnimationFrame(() => {
+      scrollToSection(location.hash);
+      navigate(location.pathname, { replace: true, state: null });
+    });
+  }, [location.hash, location.state, location.pathname, navigate]);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -86,15 +95,15 @@ export default function Accueil() {
         </div>
 
         <div className="hero-actions">
-          <a href="#projets" className="hero-cta hero-cta--primary">
+          <SectionLink section="#projets" className="hero-cta hero-cta--primary">
             Voir mes projets
-          </a>
-          <a href="#contact" className="hero-cta hero-cta--secondary">
+          </SectionLink>
+          <SectionLink section="#contact" className="hero-cta hero-cta--secondary">
             Me contacter
-          </a>
-          <a href="#apropos" className="hero-cta hero-cta--secondary">
+          </SectionLink>
+          <SectionLink section="#apropos" className="hero-cta hero-cta--secondary">
             Qui suis-je ?
-          </a>
+          </SectionLink>
         </div>
       </header>
 

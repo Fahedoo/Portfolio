@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import SectionLink from "./SectionLink";
 import avatar from "../assets/DA/fahed.jpg";
 
 export default function Footer() {
@@ -51,9 +52,9 @@ export default function Footer() {
           <div className="Footer-right">
             <ul className="Footer-nav">
           <li><Link to="/">Accueil</Link></li>
-          <li><Link to="/#projets">Projets</Link></li>
-          <li><Link to="/#apropos">À propos</Link></li>
-          <li><Link to="/#contact">Contact</Link></li>
+          <li><SectionLink section="#projets">Projets</SectionLink></li>
+          <li><SectionLink section="#apropos">À propos</SectionLink></li>
+          <li><SectionLink section="#contact">Contact</SectionLink></li>
               <li><Link to="/mentions-legales">Mentions légales</Link></li>
             </ul>
             <div className="Footer-credits">
