@@ -1282,6 +1282,13 @@ img, video, canvas, svg {
   margin-bottom: 0.65em;
 }
 
+.projet-detail-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+
 .projet-detail-link a {
   padding: 0.6em 1.25em;
   border-radius: var(--radius-sm);
@@ -1622,11 +1629,44 @@ img, video, canvas, svg {
   color: #7e00d2;
 }
 
+.projet-modal-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.65rem;
+}
+
 .projet-modal-cta {
   align-self: flex-start;
-  margin-top: 0.65rem;
+  margin-top: 0;
   gap: 0.45rem;
   padding: 0.55rem 1.1rem;
+}
+
+.projet-modal-cta--repo {
+  background: #24292f;
+  box-shadow: none;
+}
+
+.projet-modal-cta--repo:hover {
+  background: #1b1f23;
+  opacity: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.projet-modal-cta--figma {
+  background: #1e1e1e;
+  box-shadow: none;
+}
+
+.projet-modal-cta--figma:hover {
+  background: #2c2c2c;
+  opacity: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.projet-modal-cta--figma svg {
+  flex-shrink: 0;
 }
 
 .projet-modal-details {

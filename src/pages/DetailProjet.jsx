@@ -52,11 +52,23 @@ export default function ProjetDetail() {
                 : <p>{projet.descriptionLongue}</p>
               }
             </div>
-            {projet.lien && (
+            {(projet.lien || projet.lienRepo || projet.lienFigma) && (
               <div className="projet-detail-link">
-                <a href={projet.lien} target="_blank" rel="noopener noreferrer">
-                  Accéder au projet
-                </a>
+                {projet.lien && (
+                  <a href={projet.lien} target="_blank" rel="noopener noreferrer">
+                    {projet.lienLabel || "Accéder au projet"}
+                  </a>
+                )}
+                {projet.lienRepo && (
+                  <a href={projet.lienRepo} target="_blank" rel="noopener noreferrer">
+                    {projet.lienRepoLabel || "Voir le répertoire"}
+                  </a>
+                )}
+                {projet.lienFigma && (
+                  <a href={projet.lienFigma} target="_blank" rel="noopener noreferrer">
+                    {projet.lienFigmaLabel || "Voir le design"}
+                  </a>
+                )}
               </div>
             )}
           </div>

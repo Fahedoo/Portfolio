@@ -50,8 +50,7 @@ const projets = [
     tags: tagsLib.filter((t) => ["React", "JavaScript"].includes(t.label)),
     type: "professionnel",
     date: "Été 2025",
-    lien: "https://github.com/Fahedoo/portfolio",
-    lienLabel: "Voir le projet",
+    lienRepo: "https://github.com/Fahedoo/portfolio",
   },
 
   {
@@ -99,7 +98,6 @@ const projets = [
     type: "universitaire",
     date: "Janvier/Mai 2025",
     lien: "http://81.194.40.26/~ismailialaoui/SAE_203/",
-    lienLabel: "Voir le projet",
   },
 
   {
@@ -152,7 +150,6 @@ const projets = [
     type: "universitaire",
     date: "Janvier/Mai 2025",
     lien: "https://jjba-manga.jimdofree.com",
-    lienLabel: "Voir le projet",
   },
 
   {
@@ -205,8 +202,7 @@ const projets = [
     tags: tagsLib.filter((t) => ["Vidéo", "Figma"].includes(t.label)),
     type: "universitaire",
     date: "Février/Mai 2024",
-    lien: "https://www.figma.com/files/team/1421445728417612243/project/336920980/SAE-202?fuid=1458413657705650364",
-    lienLabel: "Voir le projet",
+    lienFigma: "https://www.figma.com/files/team/1421445728417612243/project/336920980/SAE-202?fuid=1458413657705650364",
   },
 ];
 
