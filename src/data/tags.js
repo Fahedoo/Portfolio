@@ -108,6 +108,39 @@ const tags = [
         textColorLight: "#b85c00",
         textColorDark: "#fff",
         href: "https://developer.mozilla.org/fr/docs/Web/HTML/Element/video"
+    },
+    {
+        label: "Node.js",
+        imgSrc: "https://img.icons8.com/color/48/nodejs.png",
+        bgColorLight: "#d9f5e5",
+        bgColorDark: "#339933",
+        borderColorLight: "#a8e0c0",
+        borderColorDark: "#226622",
+        textColorLight: "#2b7a2b",
+        textColorDark: "#fff",
+        href: "https://nodejs.org/"
+    },
+    {
+        label: "Rust",
+        imgSrc: "https://img.icons8.com/fluency/48/rust-programming-language.png",
+        bgColorLight: "#f0e6de",
+        bgColorDark: "#dea584",
+        borderColorLight: "#e0c4b0",
+        borderColorDark: "#b8734a",
+        textColorLight: "#a15c38",
+        textColorDark: "#1a1a1a",
+        href: "https://www.rust-lang.org/"
+    },
+    {
+        label: "Photo",
+        imgSrc: "https://img.icons8.com/color/48/camera--v1.png",
+        bgColorLight: "#e8eef5",
+        bgColorDark: "#4a6fa5",
+        borderColorLight: "#c5d4e8",
+        borderColorDark: "#345078",
+        textColorLight: "#3d5a80",
+        textColorDark: "#fff",
+        href: "https://fr.wikipedia.org/wiki/Photographie"
     }
 ];
 
