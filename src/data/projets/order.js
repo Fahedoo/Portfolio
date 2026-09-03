@@ -4,6 +4,7 @@
  * Les slugs doivent correspondre aux fichiers dans entries/ et à la propriété slug.
  */
 export default [
+  "chefs-rage",
   "niltiplication",
   "nightofterror",
   "portfolio",
