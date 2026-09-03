@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 
 function inferType(item) {
   if (!item) return "image";
@@ -7,6 +8,19 @@ function inferType(item) {
   if (s.includes("youtube.com") || s.includes("youtu.be")) return "youtube";
   if (s.endsWith(".mp4") || s.endsWith(".webm") || s.endsWith(".ogg")) return "video";
   return "image";
+}
+
+function youtubeEmbed(src) {
+  let id = "";
+  try {
+    const url = new URL(src);
+    if (url.hostname.includes("youtu.be")) id = url.pathname.slice(1);
+    else id = url.searchParams.get("v") || "";
+  } catch {
+    const m = src.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/);
+    id = m ? m[1] : "";
+  }
+  return id ? `https://www.youtube.com/embed/${id}` : src;
 }
 
 const IconPrev = () => (
@@ -23,6 +37,33 @@ const IconNext = () => (
 
 export default function Carousel({ images, alt, variant = "default" }) {
   const [index, setIndex] = useState(0);
+  const [zoomed, setZoomed] = useState(false);
+
+  useEffect(() => {
+    if (!zoomed) return;
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") {
+        e.stopImmediatePropagation();
+        setZoomed(false);
+        return;
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        setIndex((i) => (i === 0 ? images.length - 1 : i - 1));
+        return;
+      }
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        setIndex((i) => (i === images.length - 1 ? 0 : i + 1));
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown, true);
+    return () => window.removeEventListener("keydown", onKeyDown, true);
+  }, [zoomed, images]);
 
   if (!images || images.length === 0) return null;
 
@@ -30,6 +71,9 @@ export default function Carousel({ images, alt, variant = "default" }) {
   const prev = () => setIndex((i) => (i === 0 ? total - 1 : i - 1));
   const next = () => setIndex((i) => (i === total - 1 ? 0 : i + 1));
   const isModal = variant === "modal";
+  const currentItem = images[index];
+  const currentSrc = typeof currentItem === "object" ? currentItem.src : currentItem;
+  const currentType = inferType(currentItem);
 
   const renderItem = (item, i) => {
     const type = inferType(item);
@@ -47,16 +91,7 @@ export default function Carousel({ images, alt, variant = "default" }) {
     }
 
     if (type === "youtube") {
-      let id = "";
-      try {
-        const url = new URL(src);
-        if (url.hostname.includes("youtu.be")) id = url.pathname.slice(1);
-        else id = url.searchParams.get("v") || "";
-      } catch {
-        const m = src.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/);
-        id = m ? m[1] : "";
-      }
-      const embed = id ? `https://www.youtube.com/embed/${id}` : src;
+      const embed = youtubeEmbed(src);
       return (
         <iframe
           key={i}
@@ -71,12 +106,22 @@ export default function Carousel({ images, alt, variant = "default" }) {
     }
 
     return (
-      <img
+      <button
         key={i}
-        src={src}
-        alt={alt}
-        className="carousel-media carousel-media--image"
-      />
+        type="button"
+        className="carousel-zoom-trigger"
+        onClick={(e) => {
+          e.stopPropagation();
+          setZoomed(true);
+        }}
+        aria-label="Agrandir l'image"
+      >
+        <img
+          src={src}
+          alt={alt}
+          className="carousel-media carousel-media--image"
+        />
+      </button>
     );
   };
 
@@ -140,6 +185,87 @@ export default function Carousel({ images, alt, variant = "default" }) {
             ))}
           </div>
         )
+      )}
+
+      {zoomed && createPortal(
+        <div
+          className="carousel-lightbox"
+          onClick={() => setZoomed(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Média agrandi"
+        >
+          <button
+            type="button"
+            className="carousel-lightbox-close"
+            onClick={() => setZoomed(false)}
+            aria-label="Fermer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true">
+              <path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z" />
+            </svg>
+          </button>
+
+          {total > 1 && (
+            <button
+              type="button"
+              className="carousel-lightbox-nav carousel-lightbox-nav--prev"
+              onClick={(e) => {
+                e.stopPropagation();
+                prev();
+              }}
+              aria-label="Média précédent"
+            >
+              <IconPrev />
+            </button>
+          )}
+
+          <div className="carousel-lightbox-stage" onClick={(e) => e.stopPropagation()}>
+            {currentType === "video" ? (
+              <video
+                src={currentSrc}
+                controls
+                autoPlay
+                className="carousel-lightbox-media carousel-lightbox-media--video"
+              />
+            ) : currentType === "youtube" ? (
+              <iframe
+                src={youtubeEmbed(currentSrc)}
+                title="youtube-lightbox"
+                className="carousel-lightbox-media carousel-lightbox-media--youtube"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <img
+                src={currentSrc}
+                alt={alt}
+                className="carousel-lightbox-image"
+              />
+            )}
+            {total > 1 && (
+              <span className="carousel-lightbox-counter" aria-live="polite">
+                {index + 1} / {total}
+              </span>
+            )}
+          </div>
+
+          {total > 1 && (
+            <button
+              type="button"
+              className="carousel-lightbox-nav carousel-lightbox-nav--next"
+              onClick={(e) => {
+                e.stopPropagation();
+                next();
+              }}
+              aria-label="Média suivant"
+            >
+              <IconNext />
+            </button>
+          )}
+        </div>,
+        document.body
       )}
     </div>
   );
