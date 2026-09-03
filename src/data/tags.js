@@ -122,7 +122,7 @@ const tags = [
     },
     {
         label: "Rust",
-        imgSrc: "https://img.icons8.com/fluency/48/rust-programming-language.png",
+        imgSrc: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg",
         bgColorLight: "#f0e6de",
         bgColorDark: "#dea584",
         borderColorLight: "#e0c4b0",

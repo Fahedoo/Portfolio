@@ -6,7 +6,9 @@ import tagsLib from "../tags";
  * Résolus ici via tags.js — pas besoin d'importer tagsLib dans chaque fichier projet.
  */
 function resolveTags(labels = []) {
-  return tagsLib.filter((t) => labels.includes(t.label));
+  return labels
+    .map((label) => tagsLib.find((t) => t.label === label))
+    .filter(Boolean);
 }
 
 const modules = import.meta.glob("./entries/*.js", { eager: true });

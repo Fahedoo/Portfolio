@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useLayoutEffect } from "react";
 import projets from "../data/projets";
 import Tag from "./Tag";
 import ProjetModal from "./ProjetModal";
@@ -10,7 +10,116 @@ const typesProjet = [
   { value: "personnel", label: "Personnel" },
 ];
 
-const VISIBLE_TAGS = 3;
+const MORE_MIN_WIDTH = 34; // px réservés pour le badge "+X"
+const ROW_GAP = 6; // gap en px (≈ 0.35rem)
+
+function TagsRow({ tags }) {
+  const [hovered, setHovered] = useState(false);
+  // null = pas encore mesuré (tous rendus visibles pour la mesure)
+  const [visibleCount, setVisibleCount] = useState(null);
+  const rowRef = useRef(null);
+  const itemsRef = useRef([]);
+
+  useLayoutEffect(() => {
+    function measure() {
+      const row = rowRef.current;
+      if (!row) return;
+      const rowWidth = row.clientWidth;
+      let used = 0;
+      let count = 0;
+
+      for (let i = 0; i < tags.length; i++) {
+        const el = itemsRef.current[i];
+        if (!el) continue;
+        // getBoundingClientRect().width lit la vraie largeur rendue
+        const w = el.getBoundingClientRect().width;
+        const withGap = i === 0 ? w : w + ROW_GAP;
+        const isLast = i === tags.length - 1;
+        const reserve = isLast ? 0 : MORE_MIN_WIDTH + ROW_GAP;
+
+        if (used + withGap + reserve <= rowWidth) {
+          used += withGap;
+          count = i + 1;
+        } else {
+          break;
+        }
+      }
+      setVisibleCount(Math.max(count, 1));
+    }
+
+    const ro = new ResizeObserver(() => {
+      // Reset pour re-mesurer avec tous les tags visibles
+      setVisibleCount(null);
+    });
+    if (rowRef.current) ro.observe(rowRef.current);
+    // Premier rendu : tous visibles → on mesure
+    measure();
+    return () => ro.disconnect();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tags]);
+
+  // Quand visibleCount repasse à null (resize), re-mesurer au prochain paint
+  useLayoutEffect(() => {
+    if (visibleCount === null) {
+      const row = rowRef.current;
+      if (!row) return;
+      const rowWidth = row.clientWidth;
+      let used = 0;
+      let count = 0;
+      for (let i = 0; i < tags.length; i++) {
+        const el = itemsRef.current[i];
+        if (!el) continue;
+        const w = el.getBoundingClientRect().width;
+        const withGap = i === 0 ? w : w + ROW_GAP;
+        const isLast = i === tags.length - 1;
+        const reserve = isLast ? 0 : MORE_MIN_WIDTH + ROW_GAP;
+        if (used + withGap + reserve <= rowWidth) {
+          used += withGap;
+          count = i + 1;
+        } else {
+          break;
+        }
+      }
+      setVisibleCount(Math.max(count, 1));
+    }
+  }, [visibleCount, tags]);
+
+  const measured = visibleCount !== null;
+  const hasMore = measured && visibleCount < tags.length;
+  const hiddenCount = measured ? tags.length - visibleCount : 0;
+
+  return (
+    <div
+      ref={rowRef}
+      className={`projet-tags-row${hovered ? " projet-tags-row--expanded" : ""}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {tags.map((tag, i) => {
+        const hide = measured && !hovered && i >= visibleCount;
+        return (
+          <span
+            key={tag.label}
+            ref={(el) => { itemsRef.current[i] = el; }}
+            style={{ flexShrink: 0, display: hide ? "none" : undefined }}
+          >
+            <Tag
+              imgSrc={tag.imgSrc}
+              label={tag.label}
+              bgColorLight={tag.bgColorLight}
+              borderColorLight={tag.borderColorLight}
+              textColorLight={tag.textColorLight}
+              size="small"
+            />
+          </span>
+        );
+      })}
+      {hasMore && !hovered && (
+        <span className="projet-tags-more">+{hiddenCount}</span>
+      )}
+    </div>
+  );
+}
 
 export default function ProjetsList({ limit, showFilters = true }) {
   const [filtreOuvert, setFiltreOuvert] = useState(false);
@@ -124,19 +233,7 @@ export default function ProjetsList({ limit, showFilters = true }) {
               {projet.descriptionCourte && (
                 <p className="projet-excerpt">{projet.descriptionCourte}</p>
               )}
-              <div className="projet-tags-row">
-                {projet.tags.slice(0, VISIBLE_TAGS).map((tag) => (
-                  <Tag
-                    key={tag.label}
-                    imgSrc={tag.imgSrc}
-                    label={tag.label}
-                    bgColorLight={tag.bgColorLight}
-                    borderColorLight={tag.borderColorLight}
-                    textColorLight={tag.textColorLight}
-                    size="small"
-                  />
-                ))}
-              </div>
+              <TagsRow tags={projet.tags} />
             </div>
           </button>
         ))}

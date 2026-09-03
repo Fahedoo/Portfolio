@@ -1187,11 +1187,35 @@ img, video, canvas, svg {
 
 .projet-tags-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.35rem;
   justify-content: flex-start;
+  align-items: center;
   margin-top: 0.35rem;
+  position: relative;
+  overflow: hidden;
 }
+
+.projet-tags-row--expanded {
+  flex-wrap: wrap !important;
+  overflow: visible !important;
+}
+
+.projet-tags-more {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border-accent);
+  background: var(--color-surface-muted);
+  color: var(--color-text-muted);
+  font-size: 0.75em;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  line-height: 1;
+  cursor: default;
+  transition: background 0.15s;
+}
+
 
 .projets-empty {
   text-align: center;
