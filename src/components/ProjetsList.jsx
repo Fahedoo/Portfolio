@@ -13,18 +13,20 @@ const typesProjet = [
 const MORE_MIN_WIDTH = 34; // px réservés pour le badge "+X"
 const ROW_GAP = 6; // gap en px (≈ 0.35rem)
 
-function TagsRow({ tags }) {
-  const [hovered, setHovered] = useState(false);
+function TagsRow({ tags, expanded }) {
   // null = pas encore mesuré (tous rendus visibles pour la mesure)
   const [visibleCount, setVisibleCount] = useState(null);
+  const [collapsedHeight, setCollapsedHeight] = useState(0);
+  const anchorRef = useRef(null);
   const rowRef = useRef(null);
   const itemsRef = useRef([]);
 
   useLayoutEffect(() => {
     function measure() {
       const row = rowRef.current;
-      if (!row) return;
-      const rowWidth = row.clientWidth;
+      const anchor = anchorRef.current;
+      if (!row || !anchor) return;
+      const rowWidth = anchor.clientWidth;
       let used = 0;
       let count = 0;
 
@@ -51,7 +53,7 @@ function TagsRow({ tags }) {
       // Reset pour re-mesurer avec tous les tags visibles
       setVisibleCount(null);
     });
-    if (rowRef.current) ro.observe(rowRef.current);
+    if (anchorRef.current) ro.observe(anchorRef.current);
     // Premier rendu : tous visibles → on mesure
     measure();
     return () => ro.disconnect();
@@ -61,9 +63,9 @@ function TagsRow({ tags }) {
   // Quand visibleCount repasse à null (resize), re-mesurer au prochain paint
   useLayoutEffect(() => {
     if (visibleCount === null) {
-      const row = rowRef.current;
-      if (!row) return;
-      const rowWidth = row.clientWidth;
+      const anchor = anchorRef.current;
+      if (!anchor) return;
+      const rowWidth = anchor.clientWidth;
       let used = 0;
       let count = 0;
       for (let i = 0; i < tags.length; i++) {
@@ -87,37 +89,84 @@ function TagsRow({ tags }) {
   const measured = visibleCount !== null;
   const hasMore = measured && visibleCount < tags.length;
   const hiddenCount = measured ? tags.length - visibleCount : 0;
+  const showExpanded = expanded && hasMore;
+
+  // Mémorise la hauteur repliée pour garder la place dans le flux au survol
+  useLayoutEffect(() => {
+    if (!showExpanded && rowRef.current) {
+      setCollapsedHeight(rowRef.current.offsetHeight);
+    }
+  }, [showExpanded, visibleCount, tags]);
 
   return (
     <div
-      ref={rowRef}
-      className={`projet-tags-row${hovered ? " projet-tags-row--expanded" : ""}`}
+      ref={anchorRef}
+      className="projet-tags-anchor"
+      style={showExpanded && collapsedHeight ? { height: collapsedHeight } : undefined}
+    >
+      <div
+        ref={rowRef}
+        className={`projet-tags-row${showExpanded ? " projet-tags-row--expanded" : ""}`}
+      >
+        {tags.map((tag, i) => {
+          const hide = measured && !showExpanded && i >= visibleCount;
+          return (
+            <span
+              key={tag.label}
+              ref={(el) => { itemsRef.current[i] = el; }}
+              style={{ flexShrink: 0, display: hide ? "none" : undefined }}
+            >
+              <Tag
+                imgSrc={tag.imgSrc}
+                label={tag.label}
+                bgColorLight={tag.bgColorLight}
+                borderColorLight={tag.borderColorLight}
+                textColorLight={tag.textColorLight}
+                size="small"
+              />
+            </span>
+          );
+        })}
+        {hasMore && !showExpanded && (
+          <span className="projet-tags-more">+{hiddenCount}</span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ProjetCard({ projet, onSelect }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <button
+      type="button"
+      className={`projet-card${hovered ? " projet-card--hovered" : ""}`}
+      onClick={() => onSelect(projet)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {tags.map((tag, i) => {
-        const hide = measured && !hovered && i >= visibleCount;
-        return (
-          <span
-            key={tag.label}
-            ref={(el) => { itemsRef.current[i] = el; }}
-            style={{ flexShrink: 0, display: hide ? "none" : undefined }}
-          >
-            <Tag
-              imgSrc={tag.imgSrc}
-              label={tag.label}
-              bgColorLight={tag.bgColorLight}
-              borderColorLight={tag.borderColorLight}
-              textColorLight={tag.textColorLight}
-              size="small"
-            />
+      <div className="projet-card-media">
+        <img
+          src={projet.miniature}
+          alt=""
+          className="projet-thumbnail"
+        />
+      </div>
+      <div className="projet-card-body">
+        <div className="projet-card-meta">
+          <span className="projet-type">
+            {projet.type.charAt(0).toUpperCase() + projet.type.slice(1)}
           </span>
-        );
-      })}
-      {hasMore && !hovered && (
-        <span className="projet-tags-more">+{hiddenCount}</span>
-      )}
-    </div>
+          {projet.date && <span className="projet-date">{projet.date}</span>}
+        </div>
+        <h3 className="projet-titre">{projet.titre}</h3>
+        {projet.descriptionCourte && (
+          <p className="projet-excerpt">{projet.descriptionCourte}</p>
+        )}
+        <TagsRow tags={projet.tags} expanded={hovered} />
+      </div>
+    </button>
   );
 }
 
@@ -209,33 +258,11 @@ export default function ProjetsList({ limit, showFilters = true }) {
 
       <div className="liste-projets">
         {projetsAffiches.map((projet) => (
-          <button
-            type="button"
+          <ProjetCard
             key={projet.slug}
-            className="projet-card"
-            onClick={() => setSelectedProjet(projet)}
-          >
-            <div className="projet-card-media">
-              <img
-                src={projet.miniature}
-                alt=""
-                className="projet-thumbnail"
-              />
-            </div>
-            <div className="projet-card-body">
-              <div className="projet-card-meta">
-                <span className="projet-type">
-                  {projet.type.charAt(0).toUpperCase() + projet.type.slice(1)}
-                </span>
-                {projet.date && <span className="projet-date">{projet.date}</span>}
-              </div>
-              <h3 className="projet-titre">{projet.titre}</h3>
-              {projet.descriptionCourte && (
-                <p className="projet-excerpt">{projet.descriptionCourte}</p>
-              )}
-              <TagsRow tags={projet.tags} />
-            </div>
-          </button>
+            projet={projet}
+            onSelect={setSelectedProjet}
+          />
         ))}
       </div>
 
