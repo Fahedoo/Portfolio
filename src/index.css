@@ -561,7 +561,7 @@ img, video, canvas, svg {
 
 .bento-card h2 {
   font-family: var(--font-body);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: 700;
   color: var(--color-primary);
   margin-bottom: 0.5rem;
@@ -569,14 +569,14 @@ img, video, canvas, svg {
 
 .bento-card h3 {
   font-family: var(--font-body);
-  font-size: var(--text-md);
+  font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-text);
   margin-bottom: 0.25rem;
 }
 
 .bento-card p {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   line-height: 1.55;
   color: var(--color-text-muted);
   font-weight: 400;
@@ -607,7 +607,7 @@ img, video, canvas, svg {
 }
 
 .bento-subtitle {
-  font-size: var(--text-xs) !important;
+  font-size: var(--text-sm) !important;
   color: var(--color-text-light) !important;
 }
 
@@ -658,7 +658,7 @@ img, video, canvas, svg {
 
 .bento-skills-list .IconButton {
   padding: 0.25rem 0.55rem !important;
-  font-size: var(--text-xs) !important;
+  font-size: var(--text-sm) !important;
 }
 
 .bento-skills-list .IconButton img {
@@ -682,19 +682,19 @@ img, video, canvas, svg {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   font-weight: 600;
   color: var(--color-pink);
   margin-bottom: 0.25rem;
 }
 
 .bento-passion-emoji {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1;
 }
 
 .bento-passion-item p {
-  font-size: var(--text-xs) !important;
+  font-size: var(--text-sm) !important;
   margin: 0;
   line-height: 1.45 !important;
 }
@@ -712,7 +712,7 @@ img, video, canvas, svg {
 }
 
 .bento-cta-label {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-pink);
@@ -720,7 +720,7 @@ img, video, canvas, svg {
 }
 
 .bento-cta p {
-  font-size: var(--text-xs) !important;
+  font-size: var(--text-sm) !important;
   font-weight: 600;
   color: var(--color-text);
   margin: 0;
@@ -1081,6 +1081,7 @@ img, video, canvas, svg {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
+  align-items: start;
   width: 100%;
   max-width: min(1280px, 96vw);
   margin: 0 auto;
@@ -1101,22 +1102,34 @@ img, video, canvas, svg {
   color: inherit;
   font: inherit;
   appearance: none;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
   box-shadow: var(--shadow-sm);
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
-.projet-card:hover {
+.projet-card:hover,
+.projet-card--hovered {
   border-color: var(--color-primary-light);
   box-shadow: var(--shadow-md);
   transform: translateY(-4px);
+  z-index: 20;
 }
 
-.projet-card:hover .projet-titre {
+.projet-card:has(.projet-tags-row--expanded) {
+  border-bottom-color: transparent;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.projet-card:hover .projet-titre,
+.projet-card--hovered .projet-titre {
   color: var(--color-primary);
 }
 
-.projet-card:hover .projet-thumbnail {
+.projet-card:hover .projet-thumbnail,
+.projet-card--hovered .projet-thumbnail {
   transform: scale(1.04);
 }
 
@@ -1126,6 +1139,7 @@ img, video, canvas, svg {
   background: var(--color-surface-muted);
   aspect-ratio: 16 / 9;
   line-height: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .projet-thumbnail {
@@ -1185,20 +1199,41 @@ img, video, canvas, svg {
   color: var(--color-text-muted);
 }
 
+.projet-tags-anchor {
+  position: relative;
+  margin-top: 0.35rem;
+}
+
 .projet-tags-row {
   display: flex;
   flex-wrap: nowrap;
   gap: 0.35rem;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 0.35rem;
   position: relative;
   overflow: hidden;
 }
 
 .projet-tags-row--expanded {
-  flex-wrap: wrap !important;
-  overflow: visible !important;
+  position: absolute;
+  top: 0;
+  /* -1px pour coïncider avec la bordure de la card (évite double trait + bas trop court) */
+  left: calc(-1.05rem - 1px);
+  right: calc(-1.05rem - 1px);
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 0.35rem;
+  overflow: visible;
+  min-height: calc(100% + 1.15rem);
+  padding: 0 calc(1.05rem + 1px) 1.15rem;
+  box-sizing: border-box;
+  background: var(--color-surface);
+  border: 1px solid var(--color-primary-light);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .projet-tags-more {
@@ -1579,7 +1614,8 @@ img, video, canvas, svg {
 
 .projet-modal {
   position: relative;
-  width: min(100%, 1040px);
+  /* ~1120px en 1080p, ~60% en 1440p, plafonné sur ultra-wide */
+  width: min(100%, clamp(1120px, 75vw - 320px, 1680px));
   max-height: 90vh;                 
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -1664,7 +1700,7 @@ img, video, canvas, svg {
 
 .projet-modal-title {
   font-family: var(--font-body);
-  font-size: var(--text-2xl);
+  font-size: clamp(1.5rem, 1.35rem + 0.6vw, 1.75rem);
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
@@ -1674,7 +1710,7 @@ img, video, canvas, svg {
 
 .projet-modal-section-title {
   font-family: var(--font-body);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1698,7 +1734,7 @@ img, video, canvas, svg {
 }
 
 .projet-modal-desc {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   line-height: 1.65;
   color: var(--color-text-muted);
   margin: 0;
@@ -1716,7 +1752,7 @@ img, video, canvas, svg {
 .projet-modal-duree {
   display: block;
   margin-top: 0.35rem;
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   font-weight: 700;
   color: var(--color-text-muted);
   opacity: 1;
@@ -1737,7 +1773,7 @@ img, video, canvas, svg {
   border: 1px solid var(--color-border-accent);
   background: var(--color-surface-muted);
   color: var(--color-primary-dark);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   font-weight: 600;
 }
 
@@ -1807,7 +1843,7 @@ img, video, canvas, svg {
 }
 
 .projet-modal-list li {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
   line-height: 1.55;
   margin-bottom: 0.7rem;
 }
