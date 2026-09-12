@@ -5,13 +5,12 @@ export default {
   date: "Mars 2026",
   descriptionCourte: "Un jeu de plateforme 2D multijoueur au style arcade.",
   tags: ["Node.js","JavaScript", "Rust", "HTML", "CSS"], // labels définis dans src/data/tags.js — ex: ["React", "JavaScript"]
-  miniature: "/projets/chefs-rage/chefs-rage_tn.png",
+  miniature: "/projets/chefs-rage/chefs-rage_tn.svg",
   images: [
-    "/projets/chefs-rage/chefs-rage_tn.png",
+    "/projets/chefs-rage/chefs-rage_tn.svg",
     "/projets/chefs-rage/chefs-rage_1.png",
     "/projets/chefs-rage/chefs-rage_2.png",
     "/projets/chefs-rage/chefs-rage_3.png",
-    "/projets/chefs-rage/chefs-rage_4.png",
   ],
   contexte: "SAE 402 - BUT MMI",
   duree: "Mars 2026 - 2 semaines",
