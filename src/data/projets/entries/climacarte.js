@@ -5,7 +5,7 @@ export default {
   date: "Janvier 2026",
   descriptionCourte: "Visualisateur de données sur les habitudes écologiques des français.",
   tags: ["HTML", "CSS", "JavaScript"], // labels définis dans src/data/tags.js — ex: ["React", "JavaScript"]
-  miniature: "/projets/climacarte/climacarte_tn.png",
+  miniature: "/projets/climacarte/climacarte_tn.svg",
   images: [
     "/projets/climacarte/climacarte_tn.png",
     // "/projets/climacarte/climacarte_1.png",
