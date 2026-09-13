@@ -64,9 +64,9 @@ const template = `export default {
   date: "",
   descriptionCourte: "",
   tags: [], // labels définis dans src/data/tags.js — ex: ["React", "JavaScript"]
-  miniature: "/projets/${slug}/${slug}_tn.png",
+  miniature: "/projets/${slug}/${slug}_tn.svg",
   images: [
-    "/projets/${slug}/${slug}_tn.png",
+    "/projets/${slug}/${slug}_tn.svg",
     // "/projets/${slug}/${slug}_1.png",
   ],
   contexte: "",
