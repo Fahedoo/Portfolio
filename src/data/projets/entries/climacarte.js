@@ -7,7 +7,7 @@ export default {
   tags: ["HTML", "CSS", "JavaScript"], // labels définis dans src/data/tags.js — ex: ["React", "JavaScript"]
   miniature: "/projets/climacarte/climacarte_tn.svg",
   images: [
-    "/projets/climacarte/climacarte_tn.png",
+    "/projets/climacarte/climacarte_tn.svg",
     // "/projets/climacarte/climacarte_1.png",
   ],
   contexte: "SAE 303 - BUT MMI",
